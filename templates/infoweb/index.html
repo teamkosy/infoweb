@@ -28,8 +28,8 @@
         영화
     </div>
     <div class="container_bmi">
-        BMI Test<br>
-        <form action="" method="post">
+        <h3>BMI Test</h3>
+        <form action="/bmiOk" method="post">
             {% csrf_token %}
             키를 입력하세요 : <input type="text" name="h"> cm<br><br>
             몸무게를 입력하세요 : <input type="text" name="w"> kg<br><br>
