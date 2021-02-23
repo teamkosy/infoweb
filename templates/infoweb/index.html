@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title>Info Web</title>
+</head>
+<body>
+<div class="container">
+    <div  class="container_news">
+        뉴스
+    </div>
+    <div class="container_oli">
+        유가정보<br>
+        휘발유 : 원<br>
+        경유 : 원<br>
+    </div>
+    <div class="container_lotto">
+        로또번호
+    </div>
+    <div class="container_weather">
+        날씨
+    </div>
+    <div class="container_movie">
+        영화
+    </div>
+    <div class="container_bmi">
+        BMI Test<br>
+        <form action="" method="post">
+            {% csrf_token %}
+            키를 입력하세요 : <input type="text" name="h"> cm<br><br>
+            몸무게를 입력하세요 : <input type="text" name="w"> kg<br><br>
+            <input type="submit" value="측정하기">
+            </form>
+            <br>
+            결과 : {{ bmi }}
+    </div>
+    <div class="container_contents">
+        한줄 게시판
+    </div>
+    <div class="container_chet">
+        챗봇
+    </div>
+    <div class="container_member">
+        로그인 / 회원가입
+    </div>
+</div>
+</body>
+</html>
