@@ -22,13 +22,13 @@
         로또번호
     </div>
     <div class="container_weather">
-        <h3>날씨
+        <h3>날씨</h3>
             <form action="weather" method="post">
             {% csrf_token %}
             <input type="submit" value="보기">
             </form>
+        <br>
         {{ data }}
-        {{ temp }}
     </div>
     <div class="container_movie">
         영화
