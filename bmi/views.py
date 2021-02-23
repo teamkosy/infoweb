@@ -1,8 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
-# from django.http import HttpResponse
-
 def bmi(request):
     return render(request, 'infoweb/index.html')
 
@@ -14,7 +11,7 @@ def bmiOk(request):
 
         if len(w1) == 0 or len(h1) == 0:
             # flash('측정 값을 입력하세요.')
-            return render_template('infoweb/index.html')
+            return render(request, 'infoweb/index.html')
         else:
             w = int(w1)
             h = int(h1)

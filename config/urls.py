@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('oil.urls')),
     path('', include('bmi.urls')),
     path('bmiOk', include('bmi.urls')),
+    path('weather', include('weather.urls')),
     path('admin/', admin.site.urls),
 ]
