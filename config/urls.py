@@ -24,6 +24,13 @@ urlpatterns = [
     # path('', include('oil.urls')),
     path('bmiOk', include('bmi.urls')),
     path('news/', include('news.urls')),
+    path('oil/', include('oil.urls')),
+    path('lotto/', include('lotto.urls')),
     path('weather/', include('weather.urls')),
+    # path('movie/', include('movie.urls')),
+    path('bmi/', include('bmi.urls')),
+    # path('mini/', include('mini.urls')),
+    # path('chet/', include('chet.urls')),
+    # path('member/', include('member.urls')),
     path('admin/', admin.site.urls),
 ]

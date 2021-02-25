@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'bmi',
     'weather',
     'news',
+    'lotto',
 ]
 
 MIDDLEWARE = [

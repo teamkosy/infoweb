@@ -1,0 +1,17 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+<div  class="container_bmi">
+    <h3>BMI Test</h3>
+    <form action="bmiOk" method="post">
+        {% csrf_token %}
+        키를 입력하세요 : <input type="text" name="h"> cm<br><br>
+        몸무게를 입력하세요 : <input type="text" name="w"> kg<br><br>
+        <input type="submit" value="측정하기">
+    </form>
+    <br>
+    {{ bmi }}
+    <br>
+    [ HOME ]
+    </div>
+{% endblock %}
