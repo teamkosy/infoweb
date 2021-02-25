@@ -12,6 +12,6 @@ def weather(request):
 
         for i in soup.select_one('div.weather_area'):
             blind = soup.select_one('div.weather_area')
-            data = blind.text.replace('\n', '')
+            weather = blind.text.replace('\n', '').replace(' ', '')
         print(data)
-        return render(request,'infoweb/index.html', context={'data' : data })
+        return render(request,'infoweb/index.html', context={'weather' : weather })

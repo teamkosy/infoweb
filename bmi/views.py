@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def bmi(request):
-    return render(request, 'infoweb/index.html')
+# def bmi(request):
+#     return render(request, 'infoweb/index.html')
 
 def bmiOk(request):
     if request.method == 'POST':
