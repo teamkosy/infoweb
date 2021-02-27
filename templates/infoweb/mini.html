@@ -1,0 +1,20 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+<div  class="container_mini">
+    <div  class="form-group">
+        <h3>Message</h3>
+<!--        <form action="msgOk" method="post">-->
+<!--            {% csrf_token %}-->
+            {% for list in msglist %}
+            <ul>
+                <li>{{list.title}}</li>
+                <li>{{list.contents}}</li>
+            </ul>
+        {% endfor %}
+<!--        </form>-->
+        <br>
+        <a href="/">[ HOME ]</a>
+    </div>
+</div>
+{% endblock %}

@@ -29,7 +29,7 @@ urlpatterns = [
     path('weather/', include('weather.urls')),
     # path('movie/', include('movie.urls')),
     path('bmi/', include('bmi.urls')),
-    # path('mini/', include('mini.urls')),
+    path('mini/', include('mini.urls')),
     # path('chet/', include('chet.urls')),
     # path('member/', include('member.urls')),
     path('admin/', admin.site.urls),
