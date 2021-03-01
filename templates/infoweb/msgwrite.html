@@ -1,0 +1,19 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+<div  class="container_mini">
+    <div  class="form-group">
+        <h3>Message Write</h3>
+        <br>
+        <form action="writeOk" method="post">
+        {% csrf_token %}
+        Title : <input type="text" name="title"><br>
+        Name : <input type="text" name="name"><br>
+        Content : <input type="text" name="content"><br><br>
+        <input type="submit" value="Write">
+       </form>
+        <br>
+        <a href="/">[ HOME ]</a>
+    </div>
+</div>
+{% endblock %}

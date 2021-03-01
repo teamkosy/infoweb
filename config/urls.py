@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from infoweb import views
+import mini.views
 
 urlpatterns = [
     # url('^$', views.index),
@@ -30,6 +31,9 @@ urlpatterns = [
     # path('movie/', include('movie.urls')),
     path('bmi/', include('bmi.urls')),
     path('mini/', include('mini.urls')),
+    path('msgview/<int:title>', mini.views.msgview),
+    path('write', include('mini.urls')),
+    path('writeOk', include('mini.urls')),
     # path('chet/', include('chet.urls')),
     # path('member/', include('member.urls')),
     path('admin/', admin.site.urls),

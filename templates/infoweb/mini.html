@@ -4,16 +4,28 @@
 <div  class="container_mini">
     <div  class="form-group">
         <h3>Message</h3>
-<!--        <form action="msgOk" method="post">-->
-<!--            {% csrf_token %}-->
-            {% for list in msglist %}
-            <ul>
-                <li>{{list.title}}</li>
-                <li>{{list.contents}}</li>
-            </ul>
-        {% endfor %}
-<!--        </form>-->
         <br>
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="title">Title</th>
+          <th scope="name">Name</th>
+          <th scope="date">Date</th>
+        </tr>
+      </thead>
+            <tbody>
+            {% for list in msglist %}
+             <tr>
+              <td><a href="msgview">{{list.title}}</a></td>
+              <td>{{list.name}}</td>
+              <td>{{list.regdate}}</td>
+            </tr>
+          {% endfor %}
+            </tbody>
+     </table>
+
+        <button type="button" class="btn btn-success" onclick="location.href='write'">Write</button>
+        <br><br>
         <a href="/">[ HOME ]</a>
     </div>
 </div>
