@@ -3,8 +3,12 @@
 {% block content %}
 <div  class="container_lotto">
     <h3>Lotto</h3>
-    {{ lotto }} + {{ bonus }}
-    <br>
-    <a href="/">[ HOME ]</a>
+    <hr>
+    <p>{{ date }}</p>
+    {% for lotto in data_list %}
+    {{ lotto }}
+    {% endfor %}+ {{ bonus }}
+    <br><br>
+    <a href="{% url 'home' %}">[ HOME ]</a>
 </div>
 {% endblock %}

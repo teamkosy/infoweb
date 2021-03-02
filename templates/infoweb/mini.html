@@ -16,7 +16,8 @@
             <tbody>
             {% for list in msglist %}
              <tr>
-              <td><a href="msgview">{{list.title}}</a></td>
+<!--              <td><a href="msgview/{{message.id}}">{{list.title}}</a></td>-->
+              <td><a href="{% url 'view' %}">{{list.title}}</a></td>
               <td>{{list.name}}</td>
               <td>{{list.regdate}}</td>
             </tr>
@@ -26,7 +27,7 @@
 
         <button type="button" class="btn btn-success" onclick="location.href='write'">Write</button>
         <br><br>
-        <a href="/">[ HOME ]</a>
+        <a href="{% url 'home' %}">[ HOME ]</a>
     </div>
 </div>
 {% endblock %}

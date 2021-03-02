@@ -1,10 +1,14 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="container_weather">
-    <h3>Weather</h3>
+<div  class="container_lotto">
+    <h3>Movie</h3>
     <hr>
-    {{ weather }}
+    {% for movie in total %}
+    <ul>
+        <li>{{ movie }}</li>
+    </ul>
+    {% endfor %}
     <br><br>
     <a href="{% url 'home' %}">[ HOME ]</a>
 </div>

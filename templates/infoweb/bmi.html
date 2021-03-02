@@ -4,16 +4,16 @@
 <div  class="container_bmi">
     <div  class="form-group">
         <h3>BMI Test</h3>
-        <form action="bmiOk" method="post">
+        <form action="{% url 'bmi' %}" method="post">
             {% csrf_token %}
             키를 입력하세요 : <input class="form-control" id="inputDefault" type="text" name="h"> cm<br><br>
             몸무게를 입력하세요 : <input class="form-control" id="inputDefault" type="text" name="w"> kg<br><br>
-            <input type="submit" value="측정하기">
+            <input type="submit" value="Test">
         </form>
         <br>
         {{ bmi }}
         <br>
-        <a href="/">[ HOME ]</a>
+        <a href="{% url 'home' %}">[ HOME ]</a>
     </div>
 </div>
 {% endblock %}

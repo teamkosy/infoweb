@@ -3,8 +3,16 @@
 {% block content %}
 <div  class="container_news">
     <h3>NEWS</h3>
-    <p>{{ newslist }}</p>
+    <hr>
+    {{ newslist }}
+<!--    {% for news in newslist %}-->
+<!--    <ul>-->
+<!--        <li>-->
+<!--            {{ news }}-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    {% endfor %}-->
     <br>
-    <a href="/">[ HOME ]</a>
+    <a href="{% url 'home' %}">[ HOME ]</a>
 </div>
 {% endblock %}

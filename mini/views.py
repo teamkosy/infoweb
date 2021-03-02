@@ -6,10 +6,10 @@ def mini(request):
 
     return render(request, 'infoweb/mini.html', {'msglist' : msglist})
 
-def msgview(request, title):
-    msg = get_object_or_404(Message, pk=title)
+def msgview(request):
+    # msg = get_object_or_404(Message, pk=message_id)
 
-    return render(request, 'infoweb/msgview.html', {'msg': msg})
+    return render(request, 'infoweb/msgview.html')
 
 def write(request):
     return render(request, 'infoweb/msgwrite.html')
