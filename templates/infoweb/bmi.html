@@ -4,6 +4,7 @@
 <div  class="container_bmi">
     <div  class="form-group">
         <h3>BMI Test</h3>
+        <hr>
         <form action="{% url 'bmi' %}" method="post">
             {% csrf_token %}
             키를 입력하세요 : <input class="form-control" id="inputDefault" type="text" name="h"> cm<br><br>
