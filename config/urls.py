@@ -24,8 +24,8 @@ import weather.views
 import lotto.views
 import bmi.views
 import movie.views
-# import chet.views
-# import member.views
+import chet.views
+import member.views
 
 urlpatterns = [
     path('', infoweb.views.index, name='home'),
@@ -40,8 +40,8 @@ urlpatterns = [
     path('msgview/', mini.views.msgview, name='view'),
     path('write/', mini.views.write, name='write'),
     path('writeOk/', mini.views.writeOk, name='writeOk'),
-    # path('chet/', include('chet.urls')),
-    # path('member/', include('member.urls')),
+    path('chet/', chet.views.chet, name='chet'),
+    path('member/', member.views.member, name='member'),
     path('admin/', admin.site.urls),
 ]
 

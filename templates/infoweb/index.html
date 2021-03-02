@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <ul>
-    <li><a href="news/">뉴스</a></li>
-    <li><a href="oil/">유가정보</a></li>
-    <li><a href="lotto/">로또번호</a></li>
-    <li><a href="weather/">날씨</a></li>
-    <li><a href="movie/">영화</a></li>
-    <li><a href="bmi/">BMI Test</a></li>
-    <li><a href="mini/">게시판</a></li>
-    <li><a href="chet/">챗봇</a></li>
-    <li><a href="member/">로그인 / 회원가입</a></li>
+    <li><a href="{% url 'news' %}">News</a></li>
+    <li><a href="{% url 'oil' %}">유가정보</a></li>
+    <li><a href="{% url 'lotto' %}">Lotto번호</a></li>
+    <li><a href="{% url 'weather' %}">날씨</a></li>
+    <li><a href="{% url 'movie' %}">영화</a></li>
+    <li><a href="{% url 'bmi' %}">BMI Test</a></li>
+    <li><a href="{% url 'mini' %}">게시판</a></li>
+    <li><a href="{% url 'chet' %}">챗봇</a></li>
+    <li><a href="{% url 'member' %}">Login / 회원가입</a></li>
 </ul>
 {% endblock %}

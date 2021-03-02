@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'lotto',
     'mini',
     'movie',
+    'chet',
+    'member',
 ]
 
 MIDDLEWARE = [

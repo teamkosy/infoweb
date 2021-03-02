@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+<div  class="container_lotto">
+    <h3>Oil Info</h3>
+    <hr>
+    <p>휘발유 :</p>
+    <p>경유 :</p>
+
+    <br><br>
+    <a href="{% url 'home' %}">[ HOME ]</a>
+</div>
+{% endblock %}
+</html>
