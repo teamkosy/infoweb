@@ -9,5 +9,5 @@ def news(request):
     soup = BeautifulSoup(text)
     news = soup.select_one('ol.list_popcmt')
     newslist = news.text.replace('\n', '').replace(' ', '')
-    print(newslist)
+    # print(newslist)
     return render(request, 'infoweb/news.html', context={'newslist': newslist})

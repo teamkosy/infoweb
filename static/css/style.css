@@ -1,17 +1,29 @@
 @charset "utf-8";
 
+a {
+  text-decoration:none
+}
+
+ul{
+   list-style:none;
+   padding: 8px 12px;
+   margin: 30 auto;
+}
+
 .container {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   position: absolute; left: 50%; top: 50%;
   transform: translate(-50%, -50%); text-align: center;
   /* flex-wrap: wrap; */
-  /* background-color: beige; */
+  background-color: orange;
+  border-radius: 10%;
   justify-content: center;
   align-items: center;
   /* padding: 8px 12px; */
   /*margin: 30 auto; */
+  font-size: 40px;
 }
 
 .container_news {
@@ -19,54 +31,63 @@
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_oli {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_lotto {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_weather {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_movie {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_bmi {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_mini {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_chet {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 .container_member {
   width: 30%;
   /*height: 30%; */
   flex-basis: 30%;
   border: 1px solid black;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {

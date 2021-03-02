@@ -5,11 +5,11 @@
     <div  class="form-group">
         <h3>Message Write</h3>
         <br>
-        <form action="writeOk" method="post">
+        <form action="writeOk/" method="post">
         {% csrf_token %}
         Title : <input type="text" name="title"><br>
         Name : <input type="text" name="name"><br>
-        Content : <input type="textarea" name="content"><br><br>
+        Contents : <textarea name="contents" cols="50" rows="10" wrap="hard" maxlength="255"></textarea><br><br>
         <input type="submit" value="Write">
        </form>
         <br>

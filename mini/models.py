@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 class Message(models.Model):
-    title = models.CharField(max_length=50)
-    name = models.CharField(max_length=10)
-    contents = models.TextField()
+    title = models.CharField(max_length=50,help_text='최대 50자 내로 입력가능합니다.')
+    name = models.CharField(max_length=10,help_text='최대 10자 내로 입력가능합니다.')
+    contents = models.TextField(help_text='내용을 입력해주세요~')
     regdate = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
