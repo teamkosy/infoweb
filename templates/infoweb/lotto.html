@@ -5,9 +5,29 @@
     <h3>Lotto</h3>
     <hr>
     <p>{{ date }}</p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="win_num">당첨번호</th>
+            </tr>
+        <tr>
+                 {% for lotto in data_list %}
+              <td>{{lotto}}</td>
+                {% endfor %}
+            </tr>
+        <tr>
+          <th scope="bonus">보너스</th>
+        </tr>
+      </thead>
+            <tbody>
+             <tr>
+              <td>{{bonus}}</td>
+            </tr>
+            </tbody>
+     </table>
     {% for lotto in data_list %}
-    {{ lotto }}
-    {% endfor %}+ {{ bonus }}
+    {{lotto}}
+    {% endfor %} + {{bonus}}
     <br><br>
     <a href="{% url 'home' %}">[ HOME ]</a>
 </div>

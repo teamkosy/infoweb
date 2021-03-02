@@ -12,8 +12,11 @@
             <input type="submit" value="Test">
         </form>
         <br>
+        {% if rs %}
+        BMI : {{ rs }}<br>
         {{ bmi }}
-        <br>
+        {% endif %}
+        <br><br>
         <a href="{% url 'home' %}">[ HOME ]</a>
     </div>
 </div>

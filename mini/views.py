@@ -6,13 +6,13 @@ def mini(request):
 
     return render(request, 'infoweb/mini.html', {'msglist' : msglist})
 
-def msgview(request):
+def msgView(request):
     # msg = get_object_or_404(Message, pk=message_id)
 
-    return render(request, 'infoweb/msgview.html')
+    return render(request, 'infoweb/msgView.html')
 
 def write(request):
-    return render(request, 'infoweb/msgwrite.html')
+    return render(request, 'infoweb/msgWrite.html')
 
 def writeOk(request):
     if request.method == 'POST':
