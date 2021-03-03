@@ -1,8 +1,7 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="container_lotto">
-    <h3>Lotto</h3>
+    <h1>Lotto</h1>
     <hr>
     <p>{{ date }}</p>
     <table class="table table-hover">
@@ -30,5 +29,4 @@
     {% endfor %} + {{bonus}}
     <br><br>
     <a href="{% url 'home' %}">[ HOME ]</a>
-</div>
 {% endblock %}

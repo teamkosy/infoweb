@@ -1,11 +1,9 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="container_weather">
-    <h3>Today Weather</h3>
+    <h1>Today Weather</h1>
     <hr>
     {{ weather }}
     <br><br>
     <a href="{% url 'home' %}">[ HOME ]</a>
-</div>
 {% endblock %}

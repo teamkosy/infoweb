@@ -1,0 +1,17 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Member</h1>
+    <hr>
+    <p>회원가입</p>
+    <form action="{% url 'joinOk' %}" method="post">
+    {% csrf_token %}
+        ID : <input type="text" name="uid"><br>
+        PW : <input type="password" name="upw"><br>
+        E-mail : <input type="text" name="h"><br>
+        Phone : <input type="text" name="w"><br>
+        <input type="submit" value="Join">
+    </form>
+    <br><br>
+    <a href="{% url 'home' %}">[ HOME ]</a>
+{% endblock %}

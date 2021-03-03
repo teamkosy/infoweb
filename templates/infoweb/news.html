@@ -1,8 +1,7 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="container_news">
-    <h3>NEWS Top5</h3>
+    <h1>NEWS Top5</h1>
     <hr>
     {{ newslist }}
 <!--    {% for news in newslist %}-->
@@ -14,5 +13,4 @@
 <!--    {% endfor %}-->
     <br><br>
     <a href="{% url 'home' %}">[ HOME ]</a>
-</div>
 {% endblock %}

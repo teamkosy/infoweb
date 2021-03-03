@@ -1,13 +1,11 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="container_mini">
-    <div  class="form-group">
-        <h3>Message View</h3>
-        <br>
-        {% msg.title %}
-        <br>
-        <a href="{% url 'home' %}">[ HOME ]</a>
-    </div>
+<div  class="form-group">
+    <h1>Message View</h1>
+    <br>
+    {% msg.title %}
+    <br>
+    <a href="{% url 'home' %}">[ HOME ]</a>
 </div>
 {% endblock %}
