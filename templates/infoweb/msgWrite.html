@@ -4,11 +4,9 @@
 <div  class="form-group">
     <h1>Message Write</h1>
     <br>
-    <form action="writeOk" method="post">
+    <form action="write" method="post">
     {% csrf_token %}
-    Title : <input type="text" name="title"><br>
-    Name : <input type="text" name="name"><br>
-    Content : <textarea name="content" cols="50" rows="10" wrap="hard" maxlength="255"></textarea><br><br>
+    {% form.as_p %}}
     <input type="submit" value="Write">
    </form>
     <br>

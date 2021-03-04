@@ -19,35 +19,6 @@ from django.conf.urls import url, include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
-# import infoweb.views
-# import news.views
-# import mini.views
-# import oil.views
-# import weather.views
-# import lotto.views
-# import bmi.views
-# import movie.views
-# import chet.views
-# import member.views
-
-# urlpatterns = [
-#     path('', infoweb.views.index, name='home'),
-#     path('news/', news.views.news, name='news'),
-#     path('oil/', oil.views.oil, name='oil'),
-#     path('lotto/', lotto.views.lotto, name='lotto'),
-#     path('weather/', weather.views.weather, name='weather'),
-#     path('movie/', movie.views.movie, name='movie'),
-#     path('bmi/', bmi.views.bmi,name='bmi'),
-#     # path('bmiOk/', bmi.views.bmiOk, name='bmiOk'),
-#     path('mini/', mini.views.mini, name='mini'),
-#     # path('mini/', Mini.as_view(), name='mini'),
-#     path('msgView/<int:pk>', mini.views.msgView, name='view'),
-#     path('mwrite/', mini.views.write, name='write'),
-#     path('writeOk/', mini.views.writeOk, name='writeOk'),
-#     path('chet/', chet.views.chet, name='chet'),
-#     path('member/', member.views.member, name='member'),
-#     path('admin/', admin.site.urls),
-# ]
 
 urlpatterns = [
     path('', include('infoweb.urls')),

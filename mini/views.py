@@ -1,32 +1,29 @@
 from django.shortcuts import render, get_object_or_404
-from mini.models import Message
-from django.views import generic
+from .models import Message
+from .forms import MsgForm
 
 def mini(request):
     msglist = Message.objects.order_by('-regdate')
 
     return render(request, 'infoweb/mini.html', {'msglist' : msglist})
 
-# def view(request, id):
-#     msg = get_object_or_404(Message, pk=id)
-#
-#     return render(request, 'infoweb/msgView.html')
+def mini_detail(request, pk):
+    msg = get_object_or_404(Message, pk=pk)
 
-def write(request):
-    return render(request, 'infoweb/msgWrite.html')
+    return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-def writeOk(request):
-    m = Message
+# def write(request):
+#     return render(request, 'infoweb/msgWrite.html')
+
+
+def mini_create(request):
     if request.method == 'POST':
-        title = request.POST.get('title')
-        name = request.POST.get('name')
-        content = request.POST.get('content')
+        form = MsgForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mini')
 
-        m.save(title,name,content)
-        msglist = Message.objects.order_by('-regdate')
+        else:
+            form = MsgForm()
+            return render(request, 'infoweb/msgWrite.html', {'form':form})
 
-        return render(request, 'infoweb/mini.html', {'msglist' : msglist})
-
-class View(generic.DetailView):
-    model = Message
-    # return render(request, 'infoweb/msgView.html')

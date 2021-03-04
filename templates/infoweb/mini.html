@@ -16,7 +16,7 @@
             <tbody>
             {% for list in msglist %}
              <tr>
-              <td><a href="{{ view.get_absolute_url }}">{{list.title}}</a></td>
+              <td><a href="{% url 'detail' list.id %}}">{{list.title}}</a></td>
               <td>{{list.name}}</td>
               <td>{{list.regdate}}</td>
             </tr>
