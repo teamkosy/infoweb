@@ -1,0 +1,29 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Member List</h1>
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="uid">ID</th>
+          <th scope="upw">PW</th>
+          <th scope="email">E-mail</th>
+            <th scope="phone">Phone</th>
+            <th scope="regdate">가입일</th>
+        </tr>
+      </thead>
+            <tbody>
+            {% for mem in memlist %}
+             <tr>
+              <td>{{mem.uid}}</td>
+              <td>{{mem.upw}}</td>
+              <td>{{mem.email}}</td>
+              <td>{{mem.phone}}</td>
+              <td>{{mem.regdate}}</td>
+            </tr>
+          {% endfor %}
+            </tbody>
+     </table>
+    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+{% endblock %}

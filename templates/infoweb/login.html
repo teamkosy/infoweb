@@ -1,0 +1,17 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Member</h1>
+    <hr>
+    <p>로그인 페이지</p>
+    ID : <input type="text" name="uid"><br><br>
+    PW : <input type="password" name="upw"><br><br>
+    <a href="">
+        <input type="button" class="btn btn-success" value="로그인">
+    </a>
+    <a href="{% url 'joinOk' %}">
+        <input type="button" class="btn btn-success" value="가입하기">
+    </a>
+    <br><br>
+    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+{% endblock %}

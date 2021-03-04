@@ -7,7 +7,7 @@
         {% csrf_token %}
         키를 입력하세요 : <input type="text" name="h"> cm<br><br>
         몸무게를 입력하세요 : <input type="text" name="w"> kg<br><br>
-        <input type="submit" value="Test">
+        <input type="submit" class="btn btn-success" value="측정하기">
     </form>
     <br>
     {% if rs %}
@@ -15,5 +15,5 @@
     {{ bmi }}
     {% endif %}
     <br><br>
-    <a href="{% url 'home' %}">[ HOME ]</a>
+    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
 {% endblock %}

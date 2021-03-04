@@ -12,8 +12,8 @@ def mini_detail(request, pk):
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-# def write(request):
-#     return render(request, 'infoweb/msgWrite.html')
+# def mini_del(request):
+#     return render(request, 'infoweb/mini.html')
 
 
 def mini_create(request):
