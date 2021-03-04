@@ -25,5 +25,5 @@ def mini_create(request):
 
         else:
             form = MsgForm()
-            return render(request, 'infoweb/msgWrite.html', {'form':form})
+        return render(request, 'infoweb/msgWrite.html', {'form':form})
 

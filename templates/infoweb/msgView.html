@@ -4,7 +4,26 @@
 <div  class="form-group">
     <h1>Message View</h1>
     <br>
-    {% msg.title %}
+        <table class="table table-hover">
+            <tbody>
+             <tr>
+                 <td>Title : </td>
+                 <td>{{ msg.title }}</td>
+            </tr>
+            <tr>
+                 <td>Name : </td>
+                 <td>{{ msg.name }}</td>
+            </tr>
+            <tr>
+                 <td>DateTime : </td>
+                 <td>{{ msg.regdate }}</td>
+            </tr>
+            <tr>
+                 <td>content : </td>
+                 <td>{{ msg.contents }}</td>
+            </tr>
+            </tbody>
+     </table>
     <br>
     <a href="{% url 'home' %}">[ HOME ]</a>
 </div>
