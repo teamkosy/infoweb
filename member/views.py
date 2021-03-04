@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Member
 
 def member(request):
     return render(request,'infoweb/member.html')

@@ -4,9 +4,9 @@
 <div  class="form-group">
     <h1>Message Write</h1>
     <br>
-    <form action="write/" method="post">
+    <form action="{% url 'write' %}" method="post">
     {% csrf_token %}
-    {% form.as_p %}}
+    {{ form.as_p }}
     <input type="submit" value="Write">
    </form>
     <br>

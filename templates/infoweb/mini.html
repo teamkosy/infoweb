@@ -24,7 +24,9 @@
             </tbody>
      </table>
 
-        <button type="button" class="btn btn-success" onclick="location.href='write'">Write</button>
+        <a href="{% url 'write' %}">
+        <input type="button" class="btn btn-success" value="작성하기">
+        </a>
         <br><br>
         <a href="{% url 'home' %}">[ HOME ]</a>
     </div>

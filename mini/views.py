@@ -21,9 +21,11 @@ def mini_create(request):
         form = MsgForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('mini')
+            msglist = Message.objects.order_by('-regdate')
 
-        else:
-            form = MsgForm()
-        return render(request, 'infoweb/msgWrite.html', {'form':form})
+            return render(request, 'infoweb/mini.html', {'msglist': msglist})
+
+    else:
+        form = MsgForm()
+    return render(request, 'infoweb/msgWrite.html', {'form':form})
 
