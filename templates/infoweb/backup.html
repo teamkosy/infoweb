@@ -5,68 +5,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
-    <link rel="icon" href="static/img/favicon.png">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
     <title>Info Web</title>
+    <script src="https://kit.fontawesome.com/2d323a629b.js"></script>
+    <script src="{% static 'js/menu.js' %}" defer></script>
 </head>
 <body>
-{% block content %}{% endblock %}
-<div class="container">
-    <div  class="container_news">
-        <h3>뉴스</h3>
-        {{ newslist }}
-    </div>
-    <div class="container_oli">
-        유가정보<br>
-        휘발유 : 원<br>
-        경유 : 원<br>
-    </div>
-    <div class="container_lotto">
-        로또번호
-    </div>
-    <div class="container_weather">
-        <h3>날씨</h3>
-            <form action="weather" method="post">
-            {% csrf_token %}
-            <input type="submit" value="보기">
-            </form>
-        <br>
-        {{ weather }}
-    </div>
-    <div class="container_movie">
-        영화
-    </div>
-    <div class="container_bmi">
-        <h3>BMI Test</h3>
-        <form action="/bmiOk" method="post">
-            {% csrf_token %}
-            키를 입력하세요 : <input type="text" name="h"> cm<br><br>
-            몸무게를 입력하세요 : <input type="text" name="w"> kg<br><br>
-            <input type="submit" value="측정하기">
-            </form>
-            <br>
-            결과 : {{ bmi }}
-    </div>
-    <div class="container_contents">
-        한줄 게시판
-    </div>
-    <div class="container_chet">
-        챗봇
-    </div>
-    <div class="container_member">
-        로그인 / 회원가입
-    </div>
-</div>
-<ul>
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--  <a class="navbar-brand" href="{% url 'home' %}">Info Web</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+
+<!--  <div class="navbar-collapse collapse" id="navbarColor02" style="">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" href="{% url 'home' %}">Home-->
+<!--          <span class="sr-only">(current)</span>-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'news' %}">News</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'oil' %}">유가정보</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'lotto' %}">Lotto</a>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'movie' %}">Movie</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'weather' %}">Weather</a>-->
+<!--      </li>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'bmi' %}">BMI Test</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'mini' %}">게시판</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'chet' %}">챗봇</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'member' %}">Login / 회원가입</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'memlist' %}">Member List</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+<nav class="navbar">
+  <div class="navbar_logo">
+    <i class="fab fa-accusoft"></i>
+    <a href="{% url 'home' %}">InfoWeb</a>
+
+  </div>
+
+  <ul class="navbar_menu">
     <li><a href="{% url 'news' %}">News</a></li>
-    <li><a href="{% url 'oil' %}">유가정보</a></li>
-    <li><a href="{% url 'lotto' %}">Lotto번호</a></li>
-    <li><a href="{% url 'weather' %}">날씨</a></li>
-    <li><a href="{% url 'movie' %}">영화</a></li>
-    <li><a href="{% url 'bmi' %}">BMI Test</a></li>
+    <li><a href="{% url 'oil' %}">Oil</a></li>
+    <li><a href="{% url 'lotto' %}">Lotto</a></li>
+    <li><a href="{% url 'weather' %}">Weather</a></li>
+    <li><a href="{% url 'movie' %}">Movie</a></li>
+    <li><a href="{% url 'bmi' %}">BMI</a></li>
     <li><a href="{% url 'mini' %}">게시판</a></li>
     <li><a href="{% url 'chet' %}">챗봇</a></li>
     <li><a href="{% url 'member' %}">Login / 회원가입</a></li>
-</ul>
+    <li><a href="{% url 'memlist' %}">Member List</a></li>
+  </ul>
+
+<!--  <ul clas="navbar_icons">-->
+<!--    <li><i class="fab fa-facebook"></i></li>-->
+
+<!--  </ul>-->
+
+<!--  <a href="" class="navbar_toggleBtn">-->
+<!--    <i class="fas fa-bars"></i>-->
+<!--  </a>-->
+
+</nav>
+<section>
+  <article class="container">
+  {% block content %}{% endblock %}
+  </article>
+</section>
 </body>
 </html>
