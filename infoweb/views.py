@@ -1,8 +1,5 @@
 from django.shortcuts import render
 import requests
-from bs4 import BeautifulSoup
-import json
-
 
 def index(request):
     url = 'https://imnews.imbc.com/js/coviddata.json'
