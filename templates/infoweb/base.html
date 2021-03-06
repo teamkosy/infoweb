@@ -9,34 +9,49 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <title>Info Web</title>
-    <script src="https://kit.fontawesome.com/2d323a629b.js"></script>
+    <script src="https://kit.fontawesome.com/30f683a9b6.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/menu.js' %}" defer></script>
 </head>
 <body>
-<nav class="navbar">
-  <div class="navbar_logo">
-    <i class="fab fa-accusoft"></i>
-    <a href="{% url 'home' %}">InfoWeb</a>
-  </div>
+<div class="wrapper">
+    <nav class="navbar">
+      <div class="navbar_logo">
+        <i class="fab fa-python"></i>
+        <a href="{% url 'home' %}">InfoWeb</a>
+      </div>
 
-  <ul class="navbar_menu">
-    <li><a href="{% url 'news' %}">News</a></li>
-    <li><a href="{% url 'oil' %}">Oil</a></li>
-    <li><a href="{% url 'lotto' %}">Lotto</a></li>
-    <li><a href="{% url 'weather' %}">Weather</a></li>
-    <li><a href="{% url 'movie' %}">Movie</a></li>
-    <li><a href="{% url 'bmi' %}">BMI</a></li>
-    <li><a href="{% url 'mini' %}">게시판</a></li>
-    <li><a href="{% url 'chet' %}">챗봇</a></li>
-    <li><a href="{% url 'member' %}">Login / 회원가입</a></li>
-    <li><a href="{% url 'memlist' %}">Member List</a></li>
-  </ul>
-</nav>
+      <ul class="navbar_menu">
+        <li><a href="{% url 'news' %}">News</a></li>
+        <li><a href="{% url 'oil' %}">Oil</a></li>
+        <li><a href="{% url 'lotto' %}">Lotto</a></li>
+        <li><a href="{% url 'weather' %}">Weather</a></li>
+        <li><a href="{% url 'movie' %}">Movie</a></li>
+        <li><a href="{% url 'bmi' %}">BMI</a></li>
+        <li><a href="{% url 'mini' %}">게시판</a></li>
+        <li><a href="{% url 'chet' %}">챗봇</a></li>
+        <li><a href="{% url 'member' %}">Login / 회원가입</a></li>
+        <li><a href="{% url 'memlist' %}">Member List</a></li>
+      </ul>
 
-<section>
-  <article class="container">
-  {% block content %}{% endblock %}
-  </article>
-</section>
+    <!--    <ul clas="navbar_icons">-->
+    <!--    <li><i class="fab fa-github"></i></li>-->
+    <!--    <li><i class="fas fa-bookmark"></i></li>-->
+    <!--  </ul>-->
+
+        <a href="#" class="navbar_toggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+
+    <section>
+      <div class="container">
+      {% block content %}{% endblock %}
+      </div>
+    </section>
+
+    <footer>
+        2021 / E-mail : shimwh81@naver.com / Django
+    </footer>
+</div>
 </body>
 </html>

@@ -1,11 +1,36 @@
 :root {
-    --text-color: #f0f4f5;
-    --background-color: #263343;
-    --accent-color: pink;
+    --text-color: #333;
+    --background-color: #28a745;
+    --accent-color: #d49466;
 }
 
-body {
+html,body {
     margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+.wrapper{
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.container{
+    flex: 1;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
 }
 
 a {
@@ -22,18 +47,19 @@ a {
 }
 
 .navbar_logo{
-    font-size: 24px;
-    color: var(--accent-color);
+    font-size: 30px;
+    color: white;
 }
 
 .navbar_logo:hover{
-    background-color: orange;
+    background-color: var(--accent-color);
     border-radius: 4px;
 }
 
 .navbar_menu{
     display: flex;
     list-style: none;
+    font-size: 20px;
     padding-left: 0;
 }
 
@@ -42,14 +68,19 @@ a {
 }
 
 .navbar_menu li:hover{
-    background-color: orange;
+    background-color: var(--accent-color);
     border-radius: 4px;
 }
-.navbar-icons{
+
+.navbar_icons{
     list-style: none;
-    color: var(--text-color);
+    color: var(--accent-color);
     display: flex;
     padding-left: 0;
+}
+
+.navbar_icons li{
+    padding: 8px 12px;
 }
 
 .navbar_toggleBtn {
@@ -67,17 +98,17 @@ a {
         padding: 8px 12px;
     }
     .navbar_menu {
-        /* display: none; */
+        display: none;
         flex-direction: column;
         align-items: center;
         width: 100%
     }
     .navbar_menu li{
-        width: 100%
+        width: 100%;
         text-align: center;
     }
     .navbar_icons {
-        /* display: none; */
+        display: none;
         justify-content: center;
         width: 100%;
     }
@@ -88,10 +119,4 @@ a {
     .navbar_icons.active{
         display: flex;
     }
-}
-
-.container{
-    margin-top: 50px;
-    align-items: center;
-    text-align: center;
 }

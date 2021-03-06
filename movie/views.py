@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-import json
+# import json
 
 def movie(request):
     url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f9e46ed8e2b842376cd516c304c7fde2&targetDt=20201107'
