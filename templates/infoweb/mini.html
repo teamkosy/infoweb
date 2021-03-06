@@ -15,7 +15,7 @@
       </thead>
             <tbody>
             {% for list in msglist %}
-             <tr>
+             <tr class="table-info">
               <td><a href="{% url 'detail' list.pk %}">{{list.title}}</a></td>
               <td>{{list.name}}</td>
               <td>{{list.regdate}}</td>

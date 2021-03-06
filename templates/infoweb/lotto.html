@@ -8,21 +8,19 @@
       <thead>
         <tr>
           <th scope="win_num">당첨번호</th>
+            <th scope="bonus">보너스</th>
             </tr>
+        </thead>
+        <tbody>
         <tr>
-                 {% for lotto in data_list %}
-              <td>{{lotto}}</td>
-                {% endfor %}
+              <td>
+                  {% for lotto in data_list %}
+                  {{lotto}}
+                  {% endfor %}
+              </td>
+            <td>{{bonus}}</td>
             </tr>
-        <tr>
-          <th scope="bonus">보너스</th>
-        </tr>
-      </thead>
-            <tbody>
-             <tr>
-              <td>{{bonus}}</td>
-            </tr>
-            </tbody>
+        </tbody>
      </table>
     {% for lotto in data_list %}
     {{lotto}}
