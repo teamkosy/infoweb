@@ -3,7 +3,31 @@
 {% block content %}
     <h1>Chet Bot</h1>
     <hr>
-    <p>챗봇</p>
+<div class="chatheader">
+    <table width="100%" border="0">
+        <tr>
+        <td width="50%" align="left" style="font-size:20px;">
+            <img src="{% static 'img/yuna.jpg' %}" style="height:30px;" />
+            유나 BOT
+        </td>
+        <td width="50%" align="right">
+            <span onclick="#" style="cursor:pointer;">학습하기</span>
+        </td>
+        </tr>
+    </table>
+</div>
+
+<div id="chatbox" style=height:450px;margin-top:50px;padding:10px;background-color:#BBCCDD;overflow-y:scroll;overflow-x:hidden;max-height:100vh;"></div>
+<div class="chatfooter">
+    <table width="100%">
+        <tr>
+        <td width="90%">
+            <input id="chattext" style="padding:5px 0;width:100%;border:solid 0px #FFF;">
+        </td>
+        <td width="10%"><button style="padding:5px 0;width:100%;" onclick="#" id="sendbtn">SEND</button></td>
+        </tr>
+    </table>
+</div>
 
     <br><br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>

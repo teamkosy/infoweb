@@ -11,6 +11,7 @@
     <title>Info Web</title>
     <script src="https://kit.fontawesome.com/30f683a9b6.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/menu.js' %}" defer></script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -27,7 +28,7 @@
         <li><a href="{% url 'weather' %}">Weather</a></li>
         <li><a href="{% url 'movie' %}">Movie</a></li>
         <li><a href="{% url 'bmi' %}">BMI</a></li>
-        <li><a href="{% url 'mini' %}">게시판</a></li>
+        <li><a href="{% url 'board' %}">게시판</a></li>
         <li><a href="{% url 'chet' %}">챗봇</a></li>
         <li><a href="{% url 'member' %}">Login / 회원가입</a></li>
         <li><a href="{% url 'memlist' %}">Member List</a></li>
@@ -45,6 +46,11 @@
 
     <section>
       <div class="container">
+      {% for message in messages %}
+      {{ message.tags }}
+      {{ message }}
+      {% endfor %}
+
       {% block content %}{% endblock %}
       </div>
     </section>

@@ -2,28 +2,28 @@ from django.shortcuts import render, get_object_or_404
 from .models import Message
 from .forms import MsgForm
 
-def mini(request):
+def board(request):
     msglist = Message.objects.order_by('-regdate')
 
-    return render(request, 'infoweb/mini.html', {'msglist' : msglist})
+    return render(request, 'infoweb/board.html', {'msglist' : msglist})
 
-def mini_detail(request, pk):
+def board_detail(request, pk):
     msg = get_object_or_404(Message, pk=pk)
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-# def mini_del(request):
-#     return render(request, 'infoweb/mini.html')
+# def board_del(request):
+#     return render(request, 'infoweb/board.html')
 
 
-def mini_create(request):
+def board_create(request):
     if request.method == 'POST':
         form = MsgForm(request.POST)
         if form.is_valid():
             form.save()
             msglist = Message.objects.order_by('-regdate')
 
-            return render(request, 'infoweb/mini.html', {'msglist': msglist})
+            return render(request, 'infoweb/board.html', {'msglist': msglist})
 
     else:
         form = MsgForm()

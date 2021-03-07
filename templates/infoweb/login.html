@@ -1,14 +1,14 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Member</h1>
+    <h1>Login</h1>
     <hr>
-    <p>로그인 페이지</p>
     <form action="{% url 'loginOk' %}" method="post">
     {% csrf_token %}
-    ID : <input type="text" name="uid"><br><br>
-    PW : <input type="password" name="upw"><br><br>
-        <input type="submit" class="btn btn-success" value="로그인">
+    {{ loginform }}
+<!--    ID : <input type="text" name="uid"><br><br>-->
+<!--    PW : <input type="password" name="upw"><br><br>-->
+<!--        <input type="submit" class="btn btn-success" value="로그인">-->
     <a href="{% url 'joinOk' %}">
         <input type="button" class="btn btn-success" value="가입하기">
     </a>

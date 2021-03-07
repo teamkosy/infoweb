@@ -1,43 +1,44 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Member
-from .forms import JoinForm
+from .forms import JoinForm, LoginForm
+from django.contrib.auth import login as auth_login
+from django.contrib import messages
 
 def member(request):
     return render(request,'infoweb/login.html')
+
 
 def memlist(request):
     memlist = Member.objects.order_by('-regdate')
 
     return render(request,'infoweb/memlist.html', {'memlist':memlist})
 
+
 def loginOk(request):
-    if request.method == 'GET':
-        return  render(request, 'infoweb/login.html')
 
-    elif request.method == 'POST':
+    if request.method == 'POST':
 
-        uid = request.POST.get('uid')
-        upw = request.POST.get('upw')
+        LoginForm = AuthenticationForm(request, request.POST)
+        if LoginForm.is_valid():
+            auth_login(request, LoginForm.get_user())
+        return render(request, 'infoweb/index.html')
 
-        id = Member.objects.get('uid')
-        pw = Member.objects.get('upw')
+    else:
+        LoginForm = AuthenticationForm()
 
-        if len(uid) == 0 or len(upw) == 0:
+    return render(request, 'infoweb/login.html', {'loginform': LoginForm})
 
-            return render(request, 'infoweb/login.html')
-        elif uid in Member.objects.all() :
-
-            return render(request,'infoweb/index.html')
 
 def joinOk(request):
     if request.method == 'POST':
         form = JoinForm(request.POST)
         if form.is_valid():
             form.save()
-            memlist = Member.objects.order_by('-regdate')
+            messages.add_message(request, messages.SUCCESS, '가입되었습니다~')
 
             return render(request, 'infoweb/index.html')
 
     else:
         form = JoinForm()
+        messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
     return render(request, 'infoweb/join.html', {'form':form})
