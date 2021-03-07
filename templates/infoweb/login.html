@@ -5,10 +5,10 @@
     <hr>
     <form action="{% url 'loginOk' %}" method="post">
     {% csrf_token %}
-    {{ loginform }}
-<!--    ID : <input type="text" name="uid"><br><br>-->
-<!--    PW : <input type="password" name="upw"><br><br>-->
-<!--        <input type="submit" class="btn btn-success" value="로그인">-->
+<!--    {{ loginform.as_p }}-->
+    ID : <input type="text" name="uid"><br><br>
+    PW : <input type="password" name="upw"><br><br>
+        <input type="submit" class="btn btn-success" value="로그인">
     <a href="{% url 'joinOk' %}">
         <input type="button" class="btn btn-success" value="가입하기">
     </a>

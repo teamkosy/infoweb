@@ -5,6 +5,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib import messages
 
 def member(request):
+
     return render(request,'infoweb/login.html')
 
 
@@ -15,18 +16,18 @@ def memlist(request):
 
 
 def loginOk(request):
-
     if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
 
-        LoginForm = AuthenticationForm(request, request.POST)
-        if LoginForm.is_valid():
-            auth_login(request, LoginForm.get_user())
-        return render(request, 'infoweb/index.html')
+            return render(request, 'infoweb/index.html')
 
     else:
-        LoginForm = AuthenticationForm()
-
-    return render(request, 'infoweb/login.html', {'loginform': LoginForm})
+        form = LoginForm()
+        messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
+    return render(request, 'infoweb/join.html', {'loginform': form})
 
 
 def joinOk(request):

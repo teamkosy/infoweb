@@ -5,17 +5,17 @@
     <h1>Message View</h1>
     <br>
         <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="title">Title</th>
+              <th scope="name">Name</th>
+              <th scope="date">Date</th>
+            </tr>
+          </thead>
             <tbody>
              <tr>
-                 <td>Title : </td>
                  <td>{{ msg.title }}</td>
-            </tr>
-            <tr>
-                 <td>Name : </td>
                  <td>{{ msg.name }}</td>
-            </tr>
-            <tr>
-                 <td>DateTime : </td>
                  <td>{{ msg.regdate }}</td>
             </tr>
             <tr>
@@ -24,12 +24,15 @@
             </tr>
             </tbody>
      </table>
+    <a href="{% url 'board' %}">
+        <input type="button" value="목록">
+    </a>
     <br><br>
     <a href="">
         <input type="button" class="btn btn-success" value="수정하기">
     </a>
     <a href="">
-        <input type="button" class="btn btn-success" value="삭제하기">
+        <input type="button" class="btn btn-danger" value="삭제하기">
     </a>
     <br><br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
