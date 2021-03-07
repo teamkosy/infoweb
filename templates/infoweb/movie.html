@@ -3,16 +3,20 @@
 {% block content %}
     <h1>Movie</h1>
     <br>
+    {{ date }} 기준
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="title">Title</th>
-          <th scope="date">Date</th>
-          <th scope="audience">Audience</th>
+          <th scope="rank">순위</th>
+          <th scope="title">제목</th>
+          <th scope="open">개봉일</th>
+            <th scope="sale">매출</th>
+          <th scope="audience">관객수</th>
+          <th scope="rankinten">순위변동</th>
         </tr>
       </thead>
             <tbody>
-            {% for movie in total %}
+            {% for movie in movie_list %}
              <tr class="table-active">
                  {% for rs in movie %}
               <td>{{rs}}</td>
