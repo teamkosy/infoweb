@@ -12,8 +12,11 @@ def board_detail(request, pk):
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-# def board_del(request):
-#     return render(request, 'infoweb/board.html')
+def board_del(request, pk):
+    msg = Message.objects.get(pk=pk)
+    msg.delete()
+
+    return render(request, 'infoweb/board.html')
 
 
 def board_create(request):

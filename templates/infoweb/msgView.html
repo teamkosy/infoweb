@@ -20,7 +20,7 @@
             </tr>
             <tr>
                  <td>content : </td>
-                 <td>{{ msg.contents }}</td>
+                 <td colspan="2">{{ msg.contents }}</td>
             </tr>
             </tbody>
      </table>
@@ -31,7 +31,7 @@
     <a href="">
         <input type="button" class="btn btn-success" value="수정하기">
     </a>
-    <a href="">
+    <a href="{% url 'delete' %}">
         <input type="button" class="btn btn-danger" value="삭제하기">
     </a>
     <br><br>
