@@ -21,3 +21,8 @@ def lotto(request):
         data_list.append(num)
 
     return render(request, 'infoweb/lotto.html', context={'data_list': data_list, 'bonus':bonus, 'date':date})
+
+
+def lottonum(request):
+
+    return render(request,'infoweb/lottonum.html')
