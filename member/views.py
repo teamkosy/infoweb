@@ -22,7 +22,7 @@ def loginOk(request):
             form.save()
             messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
 
-            return render(request, 'infoweb/index.html')
+            return render(request, 'infoweb/login.html')
 
     else:
         form = LoginForm()

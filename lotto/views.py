@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
+from random import *
 
 def lotto(request):
     url = 'https://www.dhlottery.co.kr/gameResult.do?method=byWin&wiselog=C_A_1_1'
@@ -24,5 +25,13 @@ def lotto(request):
 
 
 def lottonum(request):
+    num = range(1, 46)
+    num = list(num)
 
-    return render(request,'infoweb/lottonum.html')
+    for i in range(1, 6):
+        shuffle(num)
+        lottonum = sample(num, 6)
+        lottonum.sort()
+        print(lottonum)
+
+    return render(request,'infoweb/lottonum.html', {'lottonum':lottonum})
