@@ -1,8 +1,11 @@
 # Django
 
-#### http://shimwh81.pythonanywhere.com
+#### [http://13.209.25.135
 
-### mysql 사용
+### aws 배포
 
 ### **infoweb 개발중**
 
+- 챗봇 미구현
+- 게시글 수정, 삭제
+- 로그인 체크 및 세션처리
