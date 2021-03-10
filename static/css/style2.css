@@ -119,4 +119,9 @@ a {
     .navbar_icons.active{
         display: flex;
     }
+    .mytube{
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+    }
 }
