@@ -3,7 +3,7 @@
 {% block content %}
     <h1>My Tube</h1>
     <hr>
-    <a class="btn btn-default" href="{% url 'new' %}" style="float: right;">New Video</a>
+    <a class="btn btn-success" href="{% url 'new' %}" style="float: right;">New Video</a>
      <br><br>
     {% for video in video_list %}
         <a href="{% url 'detail' video.id %}">
