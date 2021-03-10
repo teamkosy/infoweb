@@ -22,6 +22,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('', include('infoweb.urls')),
+    path('mytube/', include('mytube.urls')),
     path('news/', include('news.urls')),
     path('oil/', include('oil.urls')),
     path('lotto/', include('lotto.urls')),
@@ -31,6 +32,5 @@ urlpatterns = [
     path('board/', include('board.urls')),
     path('chet/', include('chet.urls')),
     path('member/', include('member.urls')),
-    path('mytube/', include('mytube.urls')),
     path('admin/', admin.site.urls),
 ]
