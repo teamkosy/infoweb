@@ -8,8 +8,8 @@ def mytube(request):
 
 def video_new(request):
     if request.method == 'POST':
-        title = request.POST['title']
-        video_key = request.POST['video_key']
+        title = request.POST.get('title')
+        video_key = request.POST.get('video_key')
         Video.objects.create(title=title, video_key=video_key)
         video_list = Video.objects.order_by('-update')
 

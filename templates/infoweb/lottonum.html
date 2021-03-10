@@ -3,9 +3,10 @@
 {% block content %}
     <h1>혀니가 추천하는 번호</h1>
     <hr>
-    <form action="#" method="post">
-        진행할 게임수를 입력하세요 : <input type="text" name="game"><br>
-        <input type="submit" value="뽑기">
+    <form action="" method="post">
+        {% csrf_token %}
+<!--        진행할 게임수를 입력하세요 : <input type="text" name="game"><br>-->
+        <input type="submit" value="혀니 Pick!!">
     </form>
     <h1>
     {% for num in lottonum %}
