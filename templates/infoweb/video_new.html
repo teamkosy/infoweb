@@ -1,0 +1,22 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>My Tube</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Title">
+            <br><br>
+            "https://www.youtube.com/watch?v=fE2h3lGlOsk" --> v= 뒷부분<br>
+            <label for="video_key">Video Key</label>
+            <input type="text" name="video_key" id="video_key" placeholder="Video Key">
+        <br><br>
+        <button type="submit">올리기</button>
+    </form>
+
+    <br><br>
+    <a href="{% url 'mtyube' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
+    <br>
+{% endblock %}
+</html>

@@ -31,5 +31,6 @@ urlpatterns = [
     path('board/', include('board.urls')),
     path('chet/', include('chet.urls')),
     path('member/', include('member.urls')),
+    path('mytube/', include('mytube.urls')),
     path('admin/', admin.site.urls),
 ]

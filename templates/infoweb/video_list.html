@@ -1,0 +1,18 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>My Tube</h1>
+    <hr>
+    <a class="btn btn-default" href="{% url 'new' %}" style="float: right;">New Video</a>
+     <br><br>
+    {% for video in video_list %}
+        <a href="{% url 'detail' video.id %}">
+            <h4>{{ video.title }}</h4>  {{ video.update }}
+        </a>
+    {% endfor %}
+
+    <br><br>
+    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+    <br>
+{% endblock %}
+</html>
