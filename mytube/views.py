@@ -10,10 +10,15 @@ def video_new(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         video_key = request.POST.get('video_key')
-        Video.objects.create(title=title, video_key=video_key)
-        video_list = Video.objects.order_by('-update')
 
-        return render(request, 'infoweb/video_list.html', {'video_list': video_list})
+        if title or video_key != '':
+            Video.objects.create(title=title, video_key=video_key)
+            video_list = Video.objects.order_by('-update')
+
+            return render(request, 'infoweb/video_list.html', {'video_list': video_list})
+        else:
+            return render(request, 'infoweb/video_new.html')
+
 
     elif request.method == 'GET':
         return render(request, 'infoweb/video_new.html')
