@@ -1,10 +1,11 @@
 :root {
     --text-color: #333;
     --background-color: #28a745;
-    --accent-color: #d49466;
+    --accent-color: pink;
 }
 
 html,body {
+    font-family: 'Jua', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%
@@ -38,6 +39,11 @@ a {
     color: var(--text-color);
 }
 
+a board{
+    text-decoration: none;
+    color: black;
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -47,7 +53,7 @@ a {
 }
 
 .navbar_logo{
-    font-size: 30px;
+    font-size: 40px;
     color: white;
 }
 
@@ -59,7 +65,7 @@ a {
 .navbar_menu{
     display: flex;
     list-style: none;
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 0;
 }
 

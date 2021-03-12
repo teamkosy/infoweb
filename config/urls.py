@@ -31,6 +31,6 @@ urlpatterns = [
     path('bmi/', include('bmi.urls')),
     path('board/', include('board.urls')),
     path('chet/', include('chet.urls')),
-    path('member/', include('member.urls')),
+    path('member/', include('users.urls')),
     path('admin/', admin.site.urls),
 ]

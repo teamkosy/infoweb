@@ -16,8 +16,8 @@
             <tbody>
             {% for mem in memlist %}
              <tr class="table-warning">
-              <td>{{mem.uid}}</td>
-              <td>{{mem.upw}}</td>
+              <td>{{mem.username}}</td>
+              <td>{{mem.password}}</td>
               <td>{{mem.email}}</td>
               <td>{{mem.phone}}</td>
               <td>{{mem.regdate}}</td>
@@ -25,6 +25,6 @@
           {% endfor %}
             </tbody>
      </table>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+    <a href="{% url 'mypage' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
     <br>
 {% endblock %}

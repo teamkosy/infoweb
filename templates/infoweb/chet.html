@@ -1,6 +1,76 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
+<script>
+function sendAsk() {
+            chattext = document.getElementById("chattext").value;
+            if(chattext == "") {
+                document.getElementById("chattext").focus();
+                return false;
+            }
+
+            addtext = "<div style='margin:15px 0;text-align:right;'> <span style='padding:3px 10px;background-color:#3388cc;border-radius:3px;'>" + chattext + "</span></div>";
+            document.getElementById("chatbox").innerHTML += addtext;
+
+            var strurl = "chatanswer?chattext=" + chattext;
+            // alert(strurl);
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+
+                bottext = "<div style='margin:15px 0;text-align:left;'><span style='padding:3px 10px;background-color:#DDD;border-radius:3px;'>" + obj.anstext + "</span></div>";
+                document.getElementById("chatbox").innerHTML += bottext;
+
+                var objDiv = document.getElementById("chatbox");
+                objDiv.scrollTop = document.getElementById("chatbox");
+
+
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+        function chatTrain() {
+
+            var strurl = "chattrain";
+             alert(strurl);
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    alert(obj.result);
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        };
+
+</script>
+
+<script>
+
+var input = document.getElementById("chattext");
+
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    document.getElementById("sendbtn").click();
+  }
+});
+
+</script>
+
     <h1>Chet Bot</h1>
     <hr>
 <div class="chatheader">
@@ -11,7 +81,7 @@
             유나 BOT
         </td>
         <td width="50%" align="right">
-            <span onclick="#" style="cursor:pointer;">학습하기</span>
+            <span onclick="chatTrain()" style="cursor:pointer;">학습하기</span>
         </td>
         </tr>
     </table>
@@ -24,7 +94,7 @@
         <td width="90%">
             <input id="chattext" style="padding:5px 0;width:100%;border:solid 0px #FFF;">
         </td>
-        <td width="10%"><button style="padding:5px 0;width:100%;" onclick="#" id="sendbtn">SEND</button></td>
+        <td width="10%"><button style="padding:5px 0;width:100%;" onclick="sendAsk()" id="sendbtn">SEND</button></td>
         </tr>
     </table>
 </div>

@@ -15,8 +15,8 @@ SECRET_KEY = 's)&e6s5^4ejrz&-fa$@lmfqpmlodek6_=%(3r&ru)o3#7&4e(v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.209.25.135']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['13.209.25.135']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'board',
     'movie',
     'chet',
-    'member',
+    'users',
     'mytube',
 ]
 
@@ -134,3 +134,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
 MEDIA_ROOT = os.path.join(BASE_DIR,'static')
+
+AUTH_USER_MODEL = 'users.User'

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Message
 from .forms import MsgForm
 
@@ -24,9 +24,8 @@ def board_create(request):
         form = MsgForm(request.POST)
         if form.is_valid():
             form.save()
-            msglist = Message.objects.order_by('-regdate')
 
-            return render(request, 'infoweb/board.html', {'msglist': msglist})
+            return redirect('board')
 
     else:
         form = MsgForm()
