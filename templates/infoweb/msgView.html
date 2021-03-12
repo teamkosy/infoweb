@@ -3,34 +3,26 @@
 {% block content %}
 <div  class="form-group">
     <h1>Message View</h1>
-    <br>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-              <th scope="title">Title</th>
-              <th scope="name">Name</th>
-              <th scope="date">Date</th>
-            </tr>
-          </thead>
-            <tbody>
-             <tr>
-                 <td>{{ msg.title }}</td>
-                 <td>{{ msg.name }}</td>
-                 <td>{{ msg.regdate }}</td>
-            </tr>
-            <tr>
-                 <td>content : </td>
-                 <td colspan="2">{{ msg.contents }}</td>
-            </tr>
-            </tbody>
-     </table>
-    <br><br>
-    <a href="">
-        <input type="button" class="btn btn-success" value="수정하기">
-    </a>
-    <a href="">
-        <input type="button" class="btn btn-danger" value="삭제하기">
-    </a>
+    <hr>
+    <form action="{% url 'board_modify' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="board_id" value="{{ msg.id }}">
+        Title : <input class="form-control" type="text" name="title" value="{{ msg.title }}"><br>
+        Name : <input class="form-control" type="text" name="name" value="{{ msg.name }}"><br>
+        Content : <textarea class="form-control" id="exampleTextarea" rows="8" name="contents">{{ msg.contents }}</textarea><br>
+        <br><br>
+        <input type="submit" class="btn btn-success" value="수정하기">
+<!--        <a href="{% url 'board_del' %}">-->
+<!--        <input type="button" class="btn btn-danger" value="삭제하기">-->
+<!--        </a>-->
+    </form>
+<br>
+    <form action="{% url 'board_del' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="board_id" value="{{ msg.id }}">
+        <input type="submit" class="btn btn-danger" value="삭제하기">
+    </form>
+
     <br><br>
     <a href="{% url 'board' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
     <br>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
-from .forms import JoinForm
+from .forms import JoinForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -28,15 +28,30 @@ def loginOk(request):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            login(request, user)
+            # login(request, user)
             messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
             print('로그인 성공')
             return redirect('home')
 
         else:
-            messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
+            messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
             print('로그인 실패')
     return render(request, 'infoweb/login.html')
+
+# def loginOk(request):
+#     if request.method == "POST":
+#         form = LoginForm(request.POST)
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(username = username, password = password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('home')
+#         else:
+#             return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+#     else:
+#         form = LoginForm()
+#         return render(request, 'infoweb/login.html', {'form': form})
 
 
 def logOut(request):

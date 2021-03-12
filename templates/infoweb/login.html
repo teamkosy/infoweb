@@ -3,8 +3,9 @@
 {% block content %}
     <h1>Login</h1>
     <hr>
-    <form action="loginOk" method="post">
+    <form action="{% url 'loginOk' %}" method="post">
     {% csrf_token %}
+<!--        {{ form.as_p }}-->
     ID : <input type="text" name="uid"><br><br>
     PW : <input type="password" name="upw"><br><br>
         <input type="submit" class="btn btn-success" value="로그인">

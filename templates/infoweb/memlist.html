@@ -6,8 +6,10 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="uid">ID</th>
-          <th scope="upw">PW</th>
+          <th scope="usernaem">ID</th>
+          <th scope="password">PW</th>
+            <th scope="firstname">성</th>
+            <th scope="lastname">이름</th>
           <th scope="email">E-mail</th>
             <th scope="phone">Phone</th>
             <th scope="regdate">가입일</th>
@@ -18,6 +20,8 @@
              <tr class="table-warning">
               <td>{{mem.username}}</td>
               <td>{{mem.password}}</td>
+                 <td>{{mem.last_name}}</td>
+                 <td>{{mem.first_name}}</td>
               <td>{{mem.email}}</td>
               <td>{{mem.phone}}</td>
               <td>{{mem.regdate}}</td>

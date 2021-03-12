@@ -12,11 +12,17 @@ def board_detail(request, pk):
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-# def board_del(request, pk):
-#     msg = Message.objects.get(pk=pk)
-#     msg.delete()
-#
-#     return render(request, 'infoweb/board.html')
+def board_del(request):
+    if request.method == 'POST':
+        bid = request.POST['board_id']
+        print(bid)
+        msg = Message.objects.get(pk=bid)
+        msg.delete()
+
+        return redirect('board')
+    else:
+        print("실패")
+        return redirect('board')
 
 
 def board_create(request):
@@ -26,8 +32,23 @@ def board_create(request):
             form.save()
 
             return redirect('board')
-
     else:
         form = MsgForm()
     return render(request, 'infoweb/msgWrite.html', {'form':form})
+
+
+def board_modify(request):
+    if request.method == 'POST':
+        bid = request.POST.get('board_id')
+        title = request.POST.get('title')
+        name = request.POST.get('name')
+        contents = request.POST.get('contents')
+        # print(bid,title,name, contents)
+        msg = Message.objects.get(pk=bid)
+        msg.title = title
+        msg.name = name
+        msg.contents = contents
+        msg.save()
+
+        return redirect('board')
 
