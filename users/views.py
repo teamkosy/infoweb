@@ -19,7 +19,7 @@ def memlist(request):
 
     return render(request,'infoweb/memlist.html', {'memlist':memlist})
 
-@csrf_exempt
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('uid')
@@ -83,5 +83,9 @@ def join(request):
 
 
 def mem_del(request):
+    if request.method == 'POST':
+        sid = request.POST['sid']
+        User.objects.get(id=sid).delete()
+        logout(request)
 
-    return render(request, 'infoweb/login.html')
+        return render(request, 'infoweb/login.html')
