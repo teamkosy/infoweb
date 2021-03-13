@@ -43,7 +43,7 @@ def board_modify(request):
         title = request.POST.get('title')
         name = request.POST.get('name')
         contents = request.POST.get('contents')
-        # print(bid,title,name, contents)
+
         msg = Message.objects.get(pk=bid)
         msg.title = title
         msg.name = name

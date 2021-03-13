@@ -82,7 +82,6 @@ def join(request):
     return render(request, 'infoweb/join.html', {'form':form})
 
 
-
 def mem_del(request):
 
     return render(request, 'infoweb/login.html')

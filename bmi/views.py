@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-# def bmi(request):
-#     return render(request, 'infoweb/bmi.html')
 
 def bmi(request):
     if request.method == 'GET':
@@ -13,7 +11,6 @@ def bmi(request):
         h1 = request.POST.get('h')
 
         if len(w1) == 0 or len(h1) == 0:
-            # flash('측정 값을 입력하세요.')
             return render(request, 'infoweb/bmi.html')
         else:
             w = int(w1)

@@ -7,8 +7,8 @@
     <form action="{% url 'board_modify' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="board_id" value="{{ msg.id }}">
-        Title : <input class="form-control" type="text" name="title" value="{{ msg.title }}"><br>
-        Name : <input class="form-control" type="text" name="name" value="{{ msg.name }}"><br>
+        Title : <input class="form-control"  type="text" name="title" value="{{ msg.title }}"><br>
+        Name : <input class="form-control"  type="text" name="name" value="{{ msg.name }}"><br>
         Content : <textarea class="form-control" id="exampleTextarea" rows="8" name="contents">{{ msg.contents }}</textarea><br>
         <br><br>
         <input type="submit" class="btn btn-success" value="수정하기">
