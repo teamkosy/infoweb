@@ -75,7 +75,7 @@ def join(request):
             form.save()
             messages.add_message(request, messages.SUCCESS, '가입되었습니다~')
 
-            return render(request, 'infoweb/index.html')
+            return render(request, 'infoweb/login.html')
     else:
         form = JoinForm()
         messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
