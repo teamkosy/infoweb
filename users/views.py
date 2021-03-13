@@ -87,7 +87,4 @@ def mem_del(request):
         sid = request.POST['sid']
         User.objects.get(id=sid).delete()
         logout(request)
-        a = (request.method)
-        return render(request, 'infoweb/login.html', {'a':a})
-    else:
-        return render(request, 'infoweb/login.html', {'text':'탈퇴 실패'})
+        return render(request, 'infoweb/login.html')
