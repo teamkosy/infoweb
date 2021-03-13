@@ -9,7 +9,6 @@
     <a href="{% url 'member' %}">
     <input type="button" class="btn btn-info" value="로그인하기"></a>
     {% else %}
-    {{ request.session.user_id }}
     <form action="{% url 'mem_del' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="sid" value="{{ request.session.user_id }}">

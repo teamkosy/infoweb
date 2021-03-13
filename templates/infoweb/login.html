@@ -6,9 +6,6 @@
     {% if request.session.user_username is not None %}
 <h3>{{ request.session.user_username }}님 환영합니다~!!</h3>
     <br><br>
-    <a href="{% url 'logOut' %}">
-    <input type="button" class="btn btn-danger" value="로그아웃">
-    </a>
     {% else %}
     <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
