@@ -89,3 +89,5 @@ def mem_del(request):
         logout(request)
 
         return render(request, 'infoweb/login.html')
+    else:
+        return render(request, 'infoweb/login.html', {'text':'탈퇴 실패'})
