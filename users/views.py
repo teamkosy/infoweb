@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
 from .forms import JoinForm, LoginForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 def member(request):
 
@@ -18,25 +19,33 @@ def memlist(request):
 
     return render(request,'infoweb/memlist.html', {'memlist':memlist})
 
-
-def loginOk(request):
+@csrf_exempt
+def login(request):
     if request.method == 'POST':
         username = request.POST.get('uid')
         password = request.POST.get('upw')
         print(username, password)
 
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            # login(request, user)
-            messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-            print('로그인 성공')
-            return redirect('home')
+        if len(username) == 0 or len(password) == 0:
+            print(username, password)
+            messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
+            return render(request, 'infoweb/login.html')
 
         else:
-            messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
-            print('로그인 실패')
-    return render(request, 'infoweb/login.html')
+            uid = User.objects.get(username = username)
+
+            if uid is not None:
+                auth_login(request, uid)
+                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                print('로그인 성공')
+                print(uid.id,uid.username)
+                request.session['user_id'] = uid.id
+                request.session['user_username'] = uid.username
+                return render(request, 'infoweb/login.html')
+            else:
+                messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
+                print('로그인 실패')
+        return render(request, 'infoweb/login.html')
 
 # def loginOk(request):
 #     if request.method == "POST":
@@ -57,10 +66,9 @@ def loginOk(request):
 def logOut(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, '로그아웃 되었습니다!!')
-    return redirect('home')
+    return render(request, 'infoweb/login.html')
 
-
-def joinOk(request):
+def join(request):
     if request.method == 'POST':
         form = JoinForm(request.POST)
         if form.is_valid():
@@ -68,7 +76,6 @@ def joinOk(request):
             messages.add_message(request, messages.SUCCESS, '가입되었습니다~')
 
             return render(request, 'infoweb/index.html')
-
     else:
         form = JoinForm()
         messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
