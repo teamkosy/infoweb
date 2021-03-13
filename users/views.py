@@ -80,3 +80,9 @@ def join(request):
         form = JoinForm()
         messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
     return render(request, 'infoweb/join.html', {'form':form})
+
+
+
+def mem_del(request):
+
+    return render(request, 'infoweb/login.html')
