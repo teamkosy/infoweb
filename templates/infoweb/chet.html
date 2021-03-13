@@ -37,25 +37,25 @@ function sendAsk() {
             xhr.send(null);
         }
 
-        function chatTrain() {
+function chatTrain() {
 
-            var strurl = "chattrain";
-             alert(strurl);
-            // return false;
+    var strurl = "chattrain";
+     alert(strurl);
+    // return false;
 
-            xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4) {
-                    var data = xhr.responseText;
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = xhr.responseText;
 
-                    var obj = JSON.parse(data);
-                    alert(obj.result);
-                }
-            };
-            xhr.open("GET", strurl);
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            xhr.send(null);
-        };
+            var obj = JSON.parse(data);
+            alert(obj.result);
+        }
+    };
+    xhr.open("GET", strurl);
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    xhr.send(null);
+};
 
 </script>
 
