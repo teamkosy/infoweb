@@ -24,28 +24,27 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('uid')
         password = request.POST.get('upw')
-        print(username, password)
 
         if len(username) == 0 or len(password) == 0:
-            print(username, password)
-            messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
+            messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
             return render(request, 'infoweb/login.html')
 
         else:
             uid = User.objects.get(username = username)
 
-            if uid is not None:
-                auth_login(request, uid)
-                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-                print('로그인 성공')
-                print(uid.id,uid.username)
-                request.session['user_id'] = uid.id
-                request.session['user_username'] = uid.username
+            try:
+                if uid is not None:
+                    auth_login(request, uid)
+                    messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                    print('로그인 성공')
+                    request.session['user_id'] = uid.id
+                    request.session['user_username'] = uid.username
+                    return render(request, 'infoweb/login.html')
+                else:
+                    messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
+                    print('로그인 실패')
+            except Exception:
                 return render(request, 'infoweb/login.html')
-            else:
-                messages.add_message(request, messages.ERROR, 'ID,PW를 정확히 입력해주세요!!')
-                print('로그인 실패')
-        return render(request, 'infoweb/login.html')
 
 # def loginOk(request):
 #     if request.method == "POST":
@@ -65,6 +64,7 @@ def login(request):
 
 def logOut(request):
     logout(request)
+    request.session.clear()
     messages.add_message(request, messages.SUCCESS, '로그아웃 되었습니다!!')
     return render(request, 'infoweb/login.html')
 
