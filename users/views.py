@@ -75,12 +75,24 @@ def mem_del(request):
 
 def mem_modify(request):
     if request.method == 'POST':
-        form = UpdateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, '수정되었습니다~')
-            return render(request, 'infoweb/mypage.html')
-    else:
-        form = UpdateForm()
-        messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
-    return render(request, 'infoweb/memmodify.html', {'mform':form})
+        id = request.POST['uid']
+        upw = request.POST['upw']
+        lname = request.POST['lastname']
+        fname = request.POST['firstname']
+        email = request.POST['email']
+        phone = request.POST['phone']
+
+        user = User.objects.get(pk=id)
+        user.password = upw
+        user.last_name = lname
+        user.first_name = fname
+        user.email = email
+        user.phone = phone
+        user.save()
+
+        return render(request, 'infoweb/mypage.html')
+    elif request.method == 'GET':
+        id = request.session['user_id']
+        user = User.objects.get(pk=id)
+        return render(request, 'infoweb/memmodify.html', {'user':user})
+
