@@ -3,14 +3,41 @@
 {% block content %}
     <h1>NEWS Top5</h1>
     <hr>
-    {{ newslist }}
-<!--    {% for news in newslist %}-->
-<!--    <ul>-->
-<!--        <li>-->
+    <h2>{{ title }}</h2>
+    <br>
+    {% for news in data_list %}
+   <ul>
+        <li>
+            {{ news }}
+        </li>
+    </ul>
+    {% endfor %}
+
+<!--<table class="table table-hover">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--            <th>기사</th>-->
+<!--            <th>링크</th>-->
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--        {% for news in data_list %}-->
+<!--        <tr>-->
+<!--          <td>-->
 <!--            {{ news }}-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    {% endfor %}-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--     </tbody>-->
+<!-- </table>-->
+
+
+<!--        {% for link in link_list %}-->
+<!--        -->
+<!--            <a href="{{ link }}">{{ link }}</a>-->
+
+<!--        {% endfor %}-->
+
     <br><br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
