@@ -1,19 +1,19 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>혀니가 추천하는 번호</h1>
-    <hr>
-    <form action="" method="post">
-        {% csrf_token %}
+<h1>혀니가 추천하는 번호</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
 <!--        진행할 게임수를 입력하세요 : <input type="text" name="game"><br>-->
-        <input type="submit" value="혀니 Pick!!">
-    </form>
-    <h1>
-    {% for num in lottonum %}
-     {{num}}
-     {% endfor %}
-    </h1>
-    <br><br>
-    <a href="{% url 'lotto' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
-    <br>
+    <input type="submit" value="혀니 Pick!!">
+</form>
+<h1>
+{% for num in lottonum %}
+    {{num}}
+{% endfor %}
+</h1>
+<br><br>
+<a href="{% url 'lotto' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
+<br>
 {% endblock %}

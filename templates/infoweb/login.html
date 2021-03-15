@@ -1,28 +1,28 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Login</h1>
-    <hr>
-    {% if request.session.user_username is not None %}
-    <img src="{% static 'img/login.svg' %}" width="150" height="150" ><br><br>
+<h1>Login</h1>
+<hr>
+{% if request.session.user_username is not None %}
+<img src="{% static 'img/login.svg' %}" width="150" height="150" ><br><br>
 <h3>{{ request.session.user_username }}님 환영합니다~!!</h3>
-    <br><br>
-    <a href="{% url 'mypage' %}">
-        <input type="button" class="btn btn-success" value="My Page">
-    </a>
-    <br><br>
-    {% else %}
-    <form action="{% url 'login' %}" method="post">
+<br><br>
+<a href="{% url 'mypage' %}">
+<input type="button" class="btn btn-success" value="My Page">
+</a>
+<br><br>
+{% else %}
+<form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     ID : <input type="text" name="uid"><br><br>
     PW : <input type="password" name="upw"><br><br>
-        <input type="submit" class="btn btn-success" value="로그인">
+         <input type="submit" class="btn btn-success" value="로그인">
     <a href="{% url 'join' %}">
-        <input type="button" class="btn btn-success" value="가입하기">
+    <input type="button" class="btn btn-success" value="가입하기">
     </a>
-    </form>
-    {% endif %}
-    <br><br>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
-    <br>
+</form>
+{% endif %}
+<br><br>
+<a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+<br>
 {% endblock %}

@@ -1,17 +1,17 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Member</h1>
-    <hr>
-    <form action="" method="post">
+<h1>Member</h1>
+<hr>
+<form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-success" value="가입하기">
     <a href="{% url 'member' %}">
     <input type="button" class="btn btn-warning" value="Back">
     </a>
-    </form>
-    <br><br>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
-    <br>
+</form>
+<br><br>
+<a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+<br>
 {% endblock %}

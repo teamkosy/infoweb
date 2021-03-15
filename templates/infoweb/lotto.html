@@ -1,30 +1,29 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Lotto</h1>
-    <hr>
-    <p>{{ date }}</p>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>당첨번호</th>
-            <th>보너스</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-              <td>
-                  {% for lotto in data_list %}
-                  {{lotto}}
-                  {% endfor %}
-              </td>
-            <td>{{bonus}}</td>
-            </tr>
-        </tbody>
-     </table>
-    <a href="{% url 'lottonum' %}"><input type="button" value="로또번호 생성"></a>
-
-    <br><br>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
-    <br>
+<h1>Lotto</h1>
+<hr>
+<p>{{ date }}</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>당첨번호</th>
+        <th>보너스</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+          {% for lotto in data_list %}
+          {{lotto}}
+          {% endfor %}
+      </td>
+      <td>{{bonus}}</td>
+    </tr>
+    </tbody>
+</table>
+<a href="{% url 'lottonum' %}"><input type="button" value="로또번호 생성"></a>
+<br><br>
+<a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+<br>
 {% endblock %}

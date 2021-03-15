@@ -12,11 +12,11 @@
         Content : <textarea class="form-control" id="exampleTextarea" rows="8" name="contents">{{ msg.contents }}</textarea><br>
         <br><br>
         <input type="submit" class="btn btn-success" value="수정하기">
-<!--        <a href="{% url 'board_del' %}">-->
-<!--        <input type="button" class="btn btn-danger" value="삭제하기">-->
-<!--        </a>-->
+    <!--        <a href="{% url 'board_del' %}">-->
+    <!--        <input type="button" class="btn btn-danger" value="삭제하기">-->
+    <!--        </a>-->
     </form>
-<br>
+    <br>
     <form action="{% url 'board_del' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="board_id" value="{{ msg.id }}">

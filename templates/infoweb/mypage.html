@@ -1,6 +1,7 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
+<div  class="form-group">
     <h1>My Page</h1>
     <hr>
     {% if request.session.user_username is None %}
@@ -24,5 +25,6 @@
     <br><br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
+</div>
     {% endif %}
 {% endblock %}

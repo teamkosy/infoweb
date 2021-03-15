@@ -2,32 +2,32 @@
 {% load static %}
 {% block content %}
 <div  class="form-group">
-    <h1>Message</h1>
-    <br>
-    <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Name</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-        <tbody>
+  <h1>Message</h1>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+      <tbody>
         {% for list in msglist %}
-         <tr class="table-info">
-          <td><a  class="board" href="{% url 'detail_view' list.pk %}">{{list.title}}</a></td>
-          <td><a href="{% url 'detail_view' list.pk %}">{{list.name}}</a></td>
-          <td><a href="{% url 'detail_view' list.pk %}">{{list.regdate}}</a></td>
-        </tr>
-      {% endfor %}
-        </tbody>
- </table>
+        <tr class="table-info">
+        <td><a  class="board" href="{% url 'detail_view' list.pk %}">{{list.title}}</a></td>
+        <td><a href="{% url 'detail_view' list.pk %}">{{list.name}}</a></td>
+        <td><a href="{% url 'detail_view' list.pk %}">{{list.regdate}}</a></td>
+      </tr>
+    {% endfor %}
+      </tbody>
+</table>
 
-    <a href="{% url 'write' %}">
-    <input type="button" class="btn btn-success" value="작성하기">
-    </a>
-    <br><br>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
-    <br>
+  <a href="{% url 'write' %}">
+  <input type="button" class="btn btn-success" value="작성하기">
+  </a>
+  <br><br>
+  <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
+  <br>
 </div>
 {% endblock %}

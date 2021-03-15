@@ -1,11 +1,11 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Member</h1>
-    <hr>
-    <form action="{% url 'mem_modify' %}" method="post">
+<h1>Member</h1>
+<hr>
+<form action="{% url 'mem_modify' %}" method="post">
     {% csrf_token %}
-<!--    {{ mform.as_p }}-->
+    <!--    {{ mform.as_p }}-->
     <input type="hidden" name="uid" value="{{request.session.user_id}}">
     ID : {{ request.session.user_username }} (id는 변경 불가)<br><br>
     PW : <input type="text" name="upw" value="{{user.password}}"><br><br>
@@ -17,8 +17,8 @@
     <a href="{% url 'mypage' %}">
     <input type="button" class="btn btn-warning" value="Back">
     </a>
-    </form>
-    <br><br>
-    <a href="{% url 'home' %}"><input type="button" class="btn btn-success" value="홈으로"></a>
-    <br>
+</form>
+<br><br>
+<a href="{% url 'home' %}"><input type="button" class="btn btn-success" value="홈으로"></a>
+<br>
 {% endblock %}
