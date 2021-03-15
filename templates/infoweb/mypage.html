@@ -12,6 +12,10 @@
     <form action="{% url 'mem_del' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="sid" value="{{ request.session.user_id }}">
+    <img src="{% static 'img/mypage.svg' %}" width="150" height="150" ><br><br>
+    <a href="{% url 'mem_modify' %}">
+    <input type="button" class="btn btn-success" value="정보수정">
+    </a>
     <a href="{% url 'memlist' %}">
     <input type="button" class="btn btn-success" value="회원목록">
     </a>

@@ -1,21 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
-from .forms import JoinForm, LoginForm
+from .forms import JoinForm, LoginForm, UpdateForm
 from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib import messages
-from django.views.decorators.csrf import csrf_exempt
+
 
 def member(request):
-
     return render(request,'infoweb/login.html')
 
 
 def mypage(request):
-
     return render(request,'infoweb/mypage.html')
 
+
 def memlist(request):
-    memlist = User.objects.order_by('-regdate')
+    memlist = User.objects.exclude(username='admin').order_by('-regdate')
 
     return render(request,'infoweb/memlist.html', {'memlist':memlist})
 
@@ -28,7 +27,6 @@ def login(request):
         if len(username) == 0 or len(password) == 0:
             messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
             return render(request, 'infoweb/login.html')
-
         else:
             uid = User.objects.get(username = username)
 
@@ -46,27 +44,12 @@ def login(request):
             except Exception:
                 return render(request, 'infoweb/login.html')
 
-# def loginOk(request):
-#     if request.method == "POST":
-#         form = LoginForm(request.POST)
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(username = username, password = password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect('home')
-#         else:
-#             return HttpResponse('로그인 실패. 다시 시도 해보세요.')
-#     else:
-#         form = LoginForm()
-#         return render(request, 'infoweb/login.html', {'form': form})
-
 
 def logOut(request):
     logout(request)
-    request.session.clear()
     messages.add_message(request, messages.SUCCESS, '로그아웃 되었습니다!!')
     return render(request, 'infoweb/login.html')
+
 
 def join(request):
     if request.method == 'POST':
@@ -88,3 +71,16 @@ def mem_del(request):
         User.objects.get(id=sid).delete()
         logout(request)
         return render(request, 'infoweb/login.html')
+
+
+def mem_modify(request):
+    if request.method == 'POST':
+        form = UpdateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, '수정되었습니다~')
+            return render(request, 'infoweb/mypage.html')
+    else:
+        form = UpdateForm()
+        messages.add_message(request, messages.ERROR, '정보를 입력해주세요!!')
+    return render(request, 'infoweb/memmodify.html', {'mform':form})

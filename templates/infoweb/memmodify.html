@@ -1,0 +1,23 @@
+{% extends "infoweb/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Member</h1>
+    <hr>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ mform.as_p }}
+    <!-- ID : {{ request.session.user_username }} (id는 변경 불가)<br><br>
+    PW : <input type="text" name="upw" value=""><br><br>
+    성 : <input type="text" name="lastname" value=""><br><br>
+    이름 : <input type="text" name="firstname" value=""><br><br>
+    E-mail : <input type="text" name="email" value=""><br><br>
+    Phone : <input type="text" name="phone" value=""><br><br> -->
+    <input type="submit" class="btn btn-info" value="수정하기">
+    <a href="{% url 'mypage' %}">
+    <input type="button" class="btn btn-warning" value="Back">
+    </a>
+    </form>
+    <br><br>
+    <a href="{% url 'home' %}"><input type="button" class="btn btn-success" value="홈으로"></a>
+    <br>
+{% endblock %}
