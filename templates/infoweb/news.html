@@ -5,39 +5,27 @@
     <hr>
     <h2>{{ title }}</h2>
     <br>
-    {% for news in data_list %}
    <ul>
         <li>
-            {{ news }}
+            <a href="{{ link_list.0 }}">{{ data_list.0 }}</a>
+        </li>
+       <br>
+       <li>
+            <a href="{{ link_list.1 }}">{{ data_list.1 }}</a>
+        </li>
+       <br>
+       <li>
+            <a href="{{ link_list.2 }}">{{ data_list.2 }}</a>
+        </li>
+       <br>
+       <li>
+            <a href="{{ link_list.3 }}">{{ data_list.3 }}</a>
+        </li>
+       <br>
+       <li>
+            <a href="{{ link_list.4 }}">{{ data_list.4 }}</a>
         </li>
     </ul>
-    {% endfor %}
-
-<!--<table class="table table-hover">-->
-<!--      <thead>-->
-<!--        <tr>-->
-<!--            <th>기사</th>-->
-<!--            <th>링크</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--        {% for news in data_list %}-->
-<!--        <tr>-->
-<!--          <td>-->
-<!--            {{ news }}-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--     </tbody>-->
-<!-- </table>-->
-
-
-<!--        {% for link in link_list %}-->
-<!--        -->
-<!--            <a href="{{ link }}">{{ link }}</a>-->
-
-<!--        {% endfor %}-->
-
     <br><br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
