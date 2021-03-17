@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
 <div  class="form-group">
-    <h1>My Page</h1>
+    <div class="my_title">
+        <h1>My Page</h1>
+    </div>
     <hr>
     {% if request.session.user_username is None %}
     <h1>로그인이 필요합니다.</h1>

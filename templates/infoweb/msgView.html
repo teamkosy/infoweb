@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
 <div  class="form-group">
-    <h1>Message View</h1>
+    <div class="my_title">
+        <h1>Message View</h1>
+    </div>
     <hr>
     <form action="{% url 'board_modify' %}" method="post">
         {% csrf_token %}

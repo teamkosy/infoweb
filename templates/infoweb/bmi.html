@@ -1,7 +1,9 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<h1>BMI Test</h1>
+<div class="my_title">
+    <h1>BMI Test</h1>
+</div>
 <hr>
 <form action="{% url 'bmi' %}" method="post">
     {% csrf_token %}
@@ -11,8 +13,8 @@
 </form>
 <br>
 {% if rs %}
-BMI : {{ rs }}<br>
-{{ bmi }}
+    BMI : {{ rs }}<br>
+    {{ bmi }}
 {% endif %}
 <br><br>
 <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>

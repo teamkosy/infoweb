@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
 <div  class="form-group">
-  <h1>Movie Top10</h1>
+  <div class="my_title">
+    <h1>Movie Top10</h1>
+  </div>
   <br>
   {{ date }} 기준
   <table class="table table-hover">
@@ -11,21 +13,21 @@
         <th scope="rank">순위</th>
         <th scope="title">제목</th>
         <th scope="open">개봉일</th>
-          <th scope="sale">매출</th>
+        <th scope="sale">매출</th>
         <th scope="audience">관객수</th>
         <th scope="rankinten">순위변동</th>
-      </tr>
+    </tr>
     </thead>
-          <tbody>
-          {% for movie in movie_list %}
-            <tr class="table-active">
-                {% for rs in movie %}
-            <td>{{rs}}</td>
-                {% endfor %}
-          </tr>
-        {% endfor %}
-          </tbody>
-    </table>
+  <tbody>
+    {% for movie in movie_list %}
+        <tr class="table-active">
+            {% for rs in movie %}
+        <td>{{rs}}</td>
+            {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
   <a href="https://www.cgv.co.kr"><img src="{% static 'img/cgv.png' %}"></a>&nbsp&nbsp
   <a href="https://www.lottecinema.co.kr"><img src="{% static 'img/lotte.png' %}"></a>&nbsp&nbsp
   <a href="https://www.megabox.co.kr/"><img src="{% static 'img/mega.png' %}"></a>
