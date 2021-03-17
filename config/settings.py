@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'chet',
     'users',
     'mytube',
+    'album',
 ]
 
 MIDDLEWARE = [

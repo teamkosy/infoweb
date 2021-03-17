@@ -25,13 +25,26 @@ def lotto(request):
 
 
 def lottonum(request):
-    num = range(1, 46)
-    num = list(num)
+    if request.method == 'POST':
+        game = request.POST['game']
+        if len(game) == 0:
+            return render(request, 'infoweb/lottonum.html')
+        else:
+            gnum = int(game)
+            print(gnum)
+            print(type(gnum))
+            num = range(1, 46)
+            num = list(num)
+            lotto_list = []
 
-    for i in range(1, 6):
-        shuffle(num)
-        lottonum = sample(num, 6)
-        lottonum.sort()
-        print(lottonum)
+            for i in range(0, gnum):
+                shuffle(num)
+                lottonum = sample(num, 6)
+                lottonum.sort()
+                lotto_list.append([lottonum])
+            return render(request, 'infoweb/lottonum.html', {'lotto_list': lotto_list})
 
-    return render(request,'infoweb/lottonum.html', {'lottonum':lottonum})
+    else:
+        print('실패')
+
+    return render(request, 'infoweb/lottonum.html')

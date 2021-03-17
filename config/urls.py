@@ -22,6 +22,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('', include('infoweb.urls')),
+    path('album/', include('album.urls')),
     path('mytube/', include('mytube.urls')),
     path('news/', include('news.urls')),
     path('oil/', include('oil.urls')),

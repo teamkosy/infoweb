@@ -3,9 +3,9 @@
 {% block content %}
 <h1>Login</h1>
 <hr>
-{% if request.session.user_username is not None %}
+{% if user.is_authenticated %}
 <img src="{% static 'img/login.svg' %}" width="150" height="150" ><br><br>
-<h3>{{ request.session.user_username }}님 환영합니다~!!</h3>
+<h3>{{ user.username }}님 환영합니다~!!</h3>
 <br><br>
 <a href="{% url 'mypage' %}">
 <input type="button" class="btn btn-success" value="My Page">

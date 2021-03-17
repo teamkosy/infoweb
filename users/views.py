@@ -28,21 +28,29 @@ def login(request):
             messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
             return render(request, 'infoweb/login.html')
         else:
-            uid = User.objects.get(username = username)
+            user = authenticate(username = username, password = password)
+            print(user)
+            uid = User.objects.get(username = username, password = password)
+            print(uid)
 
-            try:
-                if uid is not None:
-                    auth_login(request, uid)
-                    messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-                    print('로그인 성공')
-                    request.session['user_id'] = uid.id
-                    request.session['user_username'] = uid.username
-                    return render(request, 'infoweb/login.html')
-                else:
-                    messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
-                    print('로그인 실패')
-            except Exception:
-                return render(request, 'infoweb/login.html')
+            if user is not None:
+                auth_login(request, user)
+                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                print('로그인 성공')
+                request.session['user_id'] = user.id
+                request.session['user_username'] = user.username
+
+            elif uid is not None:
+                auth_login(request, uid)
+                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                print('로그인 성공')
+                request.session['user_id'] = uid.id
+                request.session['user_username'] = uid.username
+
+            else:
+                messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
+                print('로그인 실패')
+    return render(request, 'infoweb/login.html')
 
 
 def logOut(request):

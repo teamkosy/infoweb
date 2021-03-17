@@ -3,14 +3,18 @@
 {% block content %}
 <h1>혀니가 추천하는 번호</h1>
 <hr>
-<form action="" method="post">
+<form action="{% url 'lottonum' %}" method="post">
     {% csrf_token %}
-<!--        진행할 게임수를 입력하세요 : <input type="text" name="game"><br>-->
+    진행할 게임수를 입력하세요 : <input type="text" name="game"><br><br>
     <input type="submit" value="혀니 Pick!!">
 </form>
 <h1>
-{% for num in lottonum %}
-    {{num}}
+{% for lotto in lotto_list %}
+    {% for num in lotto %}
+    <ul>
+        <li>{{ num }}</li>
+    </ul>
+    {% endfor %}
 {% endfor %}
 </h1>
 <br><br>
