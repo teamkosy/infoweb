@@ -45,17 +45,16 @@ a:hover {
   text-decoration: none;
 }
 
-a board{
-    color: black;
-    text-decoration: none;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+li{
+    list-style: none;
+}
+
 my_title {
-  padding: 60px 0;
+  padding: 30px 0;
   overflow: hidden;
 }
 
@@ -65,7 +64,7 @@ my_title {
 
 .my_title {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 5px;
 }
 
 .my_title h1 {

@@ -28,28 +28,32 @@ def login(request):
             messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
             return render(request, 'infoweb/login.html')
         else:
-            user = authenticate(username = username, password = password)
-            print(user)
+            # user = authenticate(username = username, password = password)
+            # print(user)
             uid = User.objects.get(username = username, password = password)
             print(uid)
+            try:
+                # if user is not None:
+                #     auth_login(request, user)
+                #     messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                #     print('로그인 성공')
+                #     request.session['user_id'] = user.id
+                #     request.session['user_username'] = user.username
 
-            if user is not None:
-                auth_login(request, user)
-                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-                print('로그인 성공')
-                request.session['user_id'] = user.id
-                request.session['user_username'] = user.username
+                if uid is not None:
+                    auth_login(request, uid)
+                    messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
+                    print('로그인 성공')
+                    request.session['user_id'] = uid.id
+                    request.session['user_username'] = uid.username
 
-            elif uid is not None:
-                auth_login(request, uid)
-                messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-                print('로그인 성공')
-                request.session['user_id'] = uid.id
-                request.session['user_username'] = uid.username
+                else:
+                    messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
+                    print('로그인 실패')
 
-            else:
-                messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
-                print('로그인 실패')
+            except Exception as ex:
+                print('에러가 발생 했습니다', ex)
+
     return render(request, 'infoweb/login.html')
 
 

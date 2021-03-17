@@ -31,8 +31,6 @@ def lottonum(request):
             return render(request, 'infoweb/lottonum.html')
         else:
             gnum = int(game)
-            print(gnum)
-            print(type(gnum))
             num = range(1, 46)
             num = list(num)
             lotto_list = []
