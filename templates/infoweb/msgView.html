@@ -5,6 +5,7 @@
         <h1>Message View</h1>
     </div>
     <hr>
+<div class="article">
     <form action="{% url 'board_modify' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="board_id" value="{{ msg.id }}">
@@ -24,7 +25,9 @@
         <input type="submit" class="btn btn-danger" value="삭제하기">
     </form>
 
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'board' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
     <br>
 {% endblock %}

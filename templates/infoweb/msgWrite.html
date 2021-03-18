@@ -5,6 +5,7 @@
         <h1>Message Write</h1>
     </div>
     <hr>
+<div class="article">
     <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -14,6 +15,8 @@
     </a>
    </form>
     <br>
+</div>
+<br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
 {% endblock %}

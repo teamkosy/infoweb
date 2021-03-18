@@ -5,6 +5,7 @@
     <h1>Login</h1>
 </div>
 <hr>
+<div class="article">
 {% if user.is_authenticated %}
     <img src="{% static 'img/login.svg' %}" width="150" height="150" ><br><br>
     <h3>{{ user.username }}님 환영합니다~!!</h3>
@@ -25,7 +26,9 @@
         </a>
     </form>
 {% endif %}
-<br><br>
+<br>
+</div>
+    <br>
 <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
 <br>
 {% endblock %}

@@ -22,10 +22,13 @@
     <h1>My Tube</h1>
 </div>
     <hr>
+<div class="article">
     <h1>{{ video.title }}</h1>
     <div class="mytube" id="player"></div>
 
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'mytube' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
     <br>
 {% endblock %}

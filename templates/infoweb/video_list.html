@@ -5,6 +5,7 @@
     <h1>My Tube</h1>
 </div>
     <hr>
+<div class="article">
     <a class="btn btn-success" href="{% url 'new' %}" style="float: right;">New Video</a>
      <br><br>
     {% for video in video_list %}
@@ -14,7 +15,9 @@
         <hr>
     {% endfor %}
 
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
 {% endblock %}

@@ -4,13 +4,16 @@
 <div class="my_title">
     <h1>Oil Info</h1>
 </div>
+<div class="article">
     <hr>
     <p>{{ day }}기준</p>
     <p>휘발유 : {{ oil1 }}원</p>
     <p>경유 : {{ oil2 }}원</p>
     {{ oil }}
 
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
 {% endblock %}

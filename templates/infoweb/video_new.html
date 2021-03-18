@@ -5,6 +5,7 @@
     <h1>My Tube</h1>
 </div>
     <hr>
+<div class="article">
     <form method="POST">
         {% csrf_token %}
             Title : <input type="text" name="title" id="title" placeholder="Title">
@@ -15,7 +16,9 @@
         <button type="submit">올리기</button>
     </form>
 
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'mytube' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
     <br>
 {% endblock %}

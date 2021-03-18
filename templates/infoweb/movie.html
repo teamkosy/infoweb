@@ -5,6 +5,7 @@
     <h1>Movie Top10</h1>
   </div>
   <br>
+<div class="article">
   {{ date }} 기준
   <table class="table table-hover">
     <thead>
@@ -30,7 +31,9 @@
   <a href="https://www.cgv.co.kr"><img src="{% static 'img/cgv.png' %}"></a>&nbsp&nbsp
   <a href="https://www.lottecinema.co.kr"><img src="{% static 'img/lotte.png' %}"></a>&nbsp&nbsp
   <a href="https://www.megabox.co.kr/"><img src="{% static 'img/mega.png' %}"></a>
-  <br><br>
+  <br>
+</div>
+  <br>
   <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
   <br>
 {% endblock %}

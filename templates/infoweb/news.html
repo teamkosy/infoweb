@@ -5,6 +5,7 @@
     <h1>NEWS Top5</h1>
 </div>
     <hr>
+<div class="article">
     <h2>{{ title }}</h2>
     <br>
    <ul>
@@ -28,7 +29,9 @@
             <a href="{{ link_list.4 }}">{{ data_list.4 }}</a>
         </li>
     </ul>
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
 {% endblock %}

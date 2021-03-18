@@ -5,6 +5,7 @@
         <h1>Member List</h1>
     </div>
   <br>
+<div class="article">
     <form action="" method="post">
         {% csrf_token %}
         ID 검색 : <input type="text" name="uid">
@@ -33,7 +34,9 @@
         {% endfor %}
         </tbody>
     </table>
-
+<br>
+</div>
+<br>
 <a href="{% url 'mypage' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
 
 {% endblock %}

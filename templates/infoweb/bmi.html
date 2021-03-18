@@ -5,6 +5,7 @@
     <h1>BMI Test</h1>
 </div>
 <hr>
+<div class="article">
 <form action="{% url 'bmi' %}" method="post">
     {% csrf_token %}
     키를 입력하세요 : <input type="text" name="h"> cm<br><br>
@@ -16,7 +17,9 @@
     BMI : {{ rs }}<br>
     {{ bmi }}
 {% endif %}
-<br><br>
+<br>
+</div>
+    <br>
 <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
 <br>
 {% endblock %}

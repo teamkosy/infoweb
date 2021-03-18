@@ -5,6 +5,7 @@
         <h1>My Page</h1>
     </div>
     <hr>
+<div class="article">
     {% if request.session.user_username is None %}
     <h1>로그인이 필요합니다.</h1>
     <br>
@@ -23,7 +24,9 @@
     </a>
     <input type="submit" class="btn btn-danger" value="회원탈퇴">
     </form>
-    <br><br>
+    <br>
+</div>
+    <br>
     <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
     <br>
     {% endif %}

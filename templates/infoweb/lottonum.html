@@ -5,6 +5,7 @@
     <h1>혀니가 추천하는 번호</h1>
 </div>
 <hr>
+<div class="article">
 <form action="{% url 'lottonum' %}" method="post">
     {% csrf_token %}
     진행할 게임수를 입력하세요 : <input type="text" name="game"><br><br>
@@ -20,7 +21,9 @@
     {% endfor %}
 {% endfor %}
 </h1>
-<br><br>
+<br>
+</div>
+    <br>
 <a href="{% url 'lotto' %}"><input type="button" class="btn btn-info" value="뒤로"></a>
 <br>
 {% endblock %}

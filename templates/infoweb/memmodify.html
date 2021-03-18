@@ -5,6 +5,7 @@
     <h1>Member</h1>
 </div>
 <hr>
+<div class="article">
 <form action="{% url 'mem_modify' %}" method="post">
     {% csrf_token %}
     <!--    {{ mform.as_p }}-->
@@ -20,7 +21,9 @@
     <input type="button" class="btn btn-warning" value="Back">
     </a>
 </form>
-<br><br>
+<br>
+</div>
+    <br>
 <a href="{% url 'home' %}"><input type="button" class="btn btn-success" value="홈으로"></a>
 <br>
 {% endblock %}
