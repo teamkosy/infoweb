@@ -1,11 +1,10 @@
 {% extends "infoweb/base.html" %}
 {% load static %}
 {% block content %}
-<div  class="form-group">
-      <div class="my_title">
-          <h1>게시판</h1>
-      </div>
-  <br>
+<div class="my_title">
+    <h1>게시판</h1>
+</div>
+<br>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -30,5 +29,5 @@
   </a>
   <br><br>
   <a href="{% url 'home' %}"><input type="button" class="btn btn-info" value="홈으로"></a>
-</div>
+
 {% endblock %}

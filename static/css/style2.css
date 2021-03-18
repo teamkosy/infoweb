@@ -22,6 +22,8 @@ html,body {
 }
 
 .container{
+    padding: 40px 0;
+    overflow: hidden;
     flex: 1;
     align-items: center;
     text-align: center;
@@ -56,11 +58,6 @@ h1, h2, h3, h4, h5, h6 {
 
 li{
     list-style: none;
-}
-
-section {
-  padding: 40px 0;
-  overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -372,7 +369,7 @@ section {
   padding: 15px 0 0 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .portfolio-details .portfolio-info {
     padding-top: 20px;
   }
