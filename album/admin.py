@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Myalbum
+from .models import Album
 
-admin.site.register(Myalbum)
+admin.site.register(Album)
