@@ -20,7 +20,6 @@ html,body {
 
 .container{
     flex: 1;
-    margin-top: 30px;
     align-items: center;
     text-align: center;
 }
@@ -30,9 +29,12 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #333;
-    color: #fff;
     text-align: center;
+    background: #fff;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    color: #222222;
+    font-size: 14px;
 }
 
 a {
@@ -54,7 +56,7 @@ li{
 }
 
 my_title {
-  padding: 30px 0;
+  padding: 10px 0;
   overflow: hidden;
 }
 
@@ -229,28 +231,6 @@ my_title {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 991px) {
-  #hero {
-    height: 100vh;
-  }
-  #hero .animated {
-    -webkit-animation: none;
-    animation: none;
-  }
-  #hero .hero-img {
-    text-align: center;
-  }
-  #hero .hero-img img {
-    width: 50%;
-  }
-}
-
 @media (max-width: 768px) {
   #hero {
     margin-top: 20px;
@@ -266,12 +246,6 @@ my_title {
   }
   #hero .hero-img img {
     width: 70%;
-  }
-}
-
-@media (max-width: 575px) {
-  #hero .hero-img img {
-    width: 80%;
   }
 }
 
@@ -371,12 +345,6 @@ section {
 @media (max-width: 768px) {
   .clients img {
     width: 40%;
-  }
-}
-
-@media (max-width: 575px) {
-  .clients img {
-    width: 30%;
   }
 }
 
@@ -986,34 +954,4 @@ section {
   .portfolio-details .portfolio-info {
     padding-top: 20px;
   }
-}
-
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-#footer {
-  background: #fff;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  padding: 30px 0;
-  color: #222222;
-  font-size: 14px;
-}
-
-#footer .credits {
-  font-size: 13px;
-  padding-top: 5px;
-  color: #222222;
-}
-
-#footer .footer-links a {
-  color: #222222;
-  padding-left: 15px;
-}
-
-#footer .footer-links a:first-child {
-  padding-left: 0;
-}
-
-#footer .footer-links a:hover {
-  color: #3498db;
 }
