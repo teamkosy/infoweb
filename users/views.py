@@ -28,25 +28,15 @@ def login(request):
             messages.add_message(request, messages.ERROR, 'ID,PW를 입력해주세요!!')
             return render(request, 'infoweb/login.html')
         else:
-            # user = authenticate(username = username, password = password)
-            # print(user)
-            uid = User.objects.get(username = username, password = password)
-            print(uid)
-            try:
-                # if user is not None:
-                #     auth_login(request, user)
-                #     messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
-                #     print('로그인 성공')
-                #     request.session['user_id'] = user.id
-                #     request.session['user_username'] = user.username
+            user = authenticate(username = username, password = password)
 
-                if uid is not None:
-                    auth_login(request, uid)
+            try:
+                if user is not None:
+                    auth_login(request, user)
                     messages.add_message(request, messages.SUCCESS, '로그인 되었습니다~')
                     print('로그인 성공')
-                    request.session['user_id'] = uid.id
-                    request.session['user_username'] = uid.username
-
+                    request.session['user_id'] = user.id
+                    request.session['user_username'] = user.username
                 else:
                     messages.add_message(request, messages.ERROR, 'ID나 PW가 틀렸습니다!!')
                     print('로그인 실패')
@@ -66,8 +56,21 @@ def logOut(request):
 def join(request):
     if request.method == 'POST':
         form = JoinForm(request.POST)
+
         if form.is_valid():
-            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            lname = form.cleaned_data['last_name']
+            fname = form.cleaned_data['first_name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+
+            user = User.objects.create_user(username,email,password)
+            user.last_name = lname
+            user.first_name = fname
+            user.phone = phone
+            user.save()
+
             messages.add_message(request, messages.SUCCESS, '가입되었습니다~')
 
             return render(request, 'infoweb/login.html')
