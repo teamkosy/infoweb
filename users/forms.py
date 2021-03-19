@@ -20,6 +20,6 @@ class UpdateForm(forms.ModelForm):
 
     class Meta:
         medel = User
-        fields = ['password', 'last_name', 'first_name', 'email', 'phone']
+        fields = ['last_name', 'first_name', 'email', 'phone']
 
 

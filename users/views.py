@@ -3,6 +3,8 @@ from .models import User
 from .forms import JoinForm, LoginForm, UpdateForm
 from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 def member(request):
@@ -91,14 +93,14 @@ def mem_del(request):
 def mem_modify(request):
     if request.method == 'POST':
         id = request.POST['uid']
-        upw = request.POST['upw']
+        # upw = request.POST['upw']
         lname = request.POST['lastname']
         fname = request.POST['firstname']
         email = request.POST['email']
         phone = request.POST['phone']
 
         user = User.objects.get(pk=id)
-        user.password = upw
+        # user.password = upw
         user.last_name = lname
         user.first_name = fname
         user.email = email
@@ -111,3 +113,17 @@ def mem_modify(request):
         user = User.objects.get(pk=id)
         return render(request, 'infoweb/memmodify.html', {'user':user})
 
+
+def pw_modify(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, '비밀번호가 변경되었습니다~!')
+            return redirect('mypage')
+        else:
+            messages.error(request, '비밀번호를 다시 확인해주세요!!')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'infoweb/pw_modify.html', {'form': form})

@@ -11,5 +11,6 @@ urlpatterns = [
     path('logOut', views.logOut, name='logOut'),
     path('memdel', views.mem_del, name='mem_del'),
     path('memmodify', views.mem_modify, name='mem_modify'),
+    path('pwmodify', views.pw_modify, name='pw_modify'),
 
 ]
