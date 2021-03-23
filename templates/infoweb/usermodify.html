@@ -6,7 +6,7 @@
 </div>
 <hr>
 <div class="article">
-<form action="{% url 'mem_modify' %}" method="post">
+<form action="{% url 'user_modify' %}" method="post">
     {% csrf_token %}
     <!--    {{ mform.as_p }}-->
     <input type="hidden" name="uid" value="{{request.session.user_id}}">

@@ -23,13 +23,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for mem in memlist %}
+        {% for user in userlist %}
             <tr class="table-warning">
-                <td>{{mem.username}}</td>
-                <td>{{mem.last_name}}{{mem.first_name}}</td>
-                <td>{{mem.email}}</td>
-                <td>{{mem.phone}}</td>
-                <td>{{mem.regdate}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.last_name}}{{user.first_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.regdate}}</td>
             </tr>
         {% endfor %}
         </tbody>

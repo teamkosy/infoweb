@@ -7,7 +7,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 
 
-def member(request):
+def user(request):
     return render(request,'infoweb/login.html')
 
 
@@ -15,10 +15,10 @@ def mypage(request):
     return render(request,'infoweb/mypage.html')
 
 
-def memlist(request):
-    memlist = User.objects.exclude(username='admin').order_by('-regdate')
+def userlist(request):
+    userlist = User.objects.exclude(username='admin').order_by('-regdate')
 
-    return render(request,'infoweb/memlist.html', {'memlist':memlist})
+    return render(request,'infoweb/userlist.html', {'userlist':userlist})
 
 
 def login(request):
@@ -82,7 +82,7 @@ def join(request):
     return render(request, 'infoweb/join.html', {'form':form})
 
 
-def mem_del(request):
+def user_del(request):
     if request.method == 'POST':
         sid = request.POST['sid']
         User.objects.get(id=sid).delete()
@@ -90,7 +90,7 @@ def mem_del(request):
         return render(request, 'infoweb/login.html')
 
 
-def mem_modify(request):
+def user_modify(request):
     if request.method == 'POST':
         id = request.POST['uid']
         # upw = request.POST['upw']
@@ -111,7 +111,7 @@ def mem_modify(request):
     elif request.method == 'GET':
         id = request.session['user_id']
         user = User.objects.get(pk=id)
-        return render(request, 'infoweb/memmodify.html', {'user':user})
+        return render(request, 'infoweb/usermodify.html', {'user':user})
 
 
 def pw_modify(request):
