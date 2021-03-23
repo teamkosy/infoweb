@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.board, name='board'),
-    path('write/', views.board_create, name='write'),
-    path('<int:pk>/', views.board_detail, name='detail_view'),
-    path('board_del', views.board_del, name='board_del'),
-    path('board_modify', views.board_modify, name='board_modify'),
+    path('msg_write/', views.msg_create, name='msg_write'),
+    path('<int:pk>/', views.msg_detail, name='msg_detail'),
+    path('msg_del', views.msg_del, name='msg_del'),
+    path('msg_modify', views.msg_modify, name='msg_modify'),
 ]

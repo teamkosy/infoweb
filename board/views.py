@@ -7,12 +7,25 @@ def board(request):
 
     return render(request, 'infoweb/board.html', {'msglist' : msglist})
 
-def board_detail(request, pk):
+
+def msg_create(request):
+    if request.method == 'POST':
+        form = MsgForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('board')
+    else:
+        form = MsgForm()
+    return render(request, 'infoweb/msgWrite.html', {'form':form})
+
+
+def msg_detail(request, pk):
     msg = get_object_or_404(Message, pk=pk)
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
-def board_del(request):
+def msg_del(request):
     if request.method == 'POST':
         bid = request.POST['board_id']
         print(bid)
@@ -25,26 +38,14 @@ def board_del(request):
         return redirect('board')
 
 
-def board_create(request):
+def msg_modify(request):
     if request.method == 'POST':
-        form = MsgForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-            return redirect('board')
-    else:
-        form = MsgForm()
-    return render(request, 'infoweb/msgWrite.html', {'form':form})
-
-
-def board_modify(request):
-    if request.method == 'POST':
-        bid = request.POST.get('board_id')
+        mid = request.POST.get('msg_id')
         title = request.POST.get('title')
         name = request.POST.get('name')
         contents = request.POST.get('contents')
 
-        msg = Message.objects.get(pk=bid)
+        msg = Message.objects.get(pk=mid)
         msg.title = title
         msg.name = name
         msg.contents = contents
