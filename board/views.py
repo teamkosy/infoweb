@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Message
 from .forms import MsgForm
+from django.contrib import messages
 
 def board(request):
     msglist = Message.objects.order_by('-regdate')
@@ -25,17 +26,14 @@ def msg_detail(request, pk):
 
     return render(request, 'infoweb/msgView.html', {'msg':msg})
 
+
 def msg_del(request):
     if request.method == 'POST':
-        bid = request.POST['board_id']
-        print(bid)
-        msg = Message.objects.get(pk=bid)
+        mid = request.POST['msg_id']
+        msg = Message.objects.get(pk=mid)
         msg.delete()
 
-        return redirect('board')
-    else:
-        print("실패")
-        return redirect('board')
+    return redirect('board')
 
 
 def msg_modify(request):
@@ -52,4 +50,5 @@ def msg_modify(request):
         msg.save()
 
         return redirect('board')
+
 

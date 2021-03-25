@@ -8,4 +8,3 @@ def index(request):
     covid_list = list(covid.values())
 
     return render(request, 'infoweb/index.html', {'covid_list': covid_list})
-    # return render(request, 'infoweb/index.html')

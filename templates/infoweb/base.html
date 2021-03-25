@@ -27,7 +27,6 @@
       </div>
 
       <ul class="navbar_menu">
-        <li><a href="{% url 'album' %}">혀니 Album</a></li>
         <li><a href="{% url 'mytube' %}">MyTube</a></li>
         <li><a href="{% url 'news' %}">News</a></li>
         <li><a href="{% url 'oil' %}">Oil</a></li>
@@ -36,7 +35,6 @@
         <li><a href="{% url 'movie' %}">Movie</a></li>
         <li><a href="{% url 'bmi' %}">BMI</a></li>
         <li><a href="{% url 'board' %}">게시판</a></li>
-        <li><a href="{% url 'chet' %}">챗봇</a></li>
         {% if request.session.user_username is not None %}
         <li><a href="{% url 'mypage' %}">My Page</a></li>
         <li><a href="{% url 'logOut' %}">LogOut</a></li>

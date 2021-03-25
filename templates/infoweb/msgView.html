@@ -18,9 +18,10 @@
     <br>
     <form action="{% url 'msg_del' %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="board_id" value="{{ msg.id }}">
+        <input type="hidden" name="msg_id" value="{{ msg.id }}">
         <input type="submit" class="btn btn-danger" value="삭제하기">
     </form>
+
 
     <br>
 </div>

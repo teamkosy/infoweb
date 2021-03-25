@@ -20,7 +20,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('', include('infoweb.urls')),
-    path('album/', include('album.urls')),
+    # path('album/', include('album.urls')),
     path('mytube/', include('mytube.urls')),
     path('news/', include('news.urls')),
     path('oil/', include('oil.urls')),
@@ -29,7 +29,7 @@ urlpatterns = [
     path('movie/', include('movie.urls')),
     path('bmi/', include('bmi.urls')),
     path('board/', include('board.urls')),
-    path('chet/', include('chet.urls')),
+    # path('chet/', include('chet.urls')),
     path('user/', include('users.urls')),
     path('admin/', admin.site.urls),
 ]

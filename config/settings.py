@@ -36,10 +36,10 @@ INSTALLED_APPS = [
     'lotto',
     'board',
     'movie',
-    'chet',
+    # 'chet',
     'users',
     'mytube',
-    'album',
+    # 'album',
 ]
 
 MIDDLEWARE = [
